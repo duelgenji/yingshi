@@ -1,0 +1,517 @@
+/*宝宝最像我 主页*/
+.body {
+    width: 100%;
+    height: 100%;
+    background: url("../img/babylooks/bg.png");
+    background-size: 100%;
+    background-repeat: repeat;
+    position: relative;
+    z-index: 1;
+    /*text-align: center;*/
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/babylooks/bg.png");
+    background-size: 100%;
+    background-repeat: repeat;
+    position: relative;
+    z-index: 1;
+
+}
+
+.mainImg {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+}
+
+.mloader{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+    /*margin: 0 auto;*/
+    bottom:40%;
+    /*text-align: center;*/
+    margin-left: 37%;
+}
+
+.addpic {
+    width: 25.4%;
+    height: 17%;
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.addpic1 {
+    left: 15.5%;
+    bottom: 17.5%;
+}
+
+#file1 {
+    width: 25.4%;
+    height: 17%;
+    position: absolute;
+    z-index: 2;
+    left: 15.5%;
+    bottom: 17.5%;
+    opacity: 0;
+}
+
+#file2 {
+    width: 25.4%;
+    height: 17%;
+    position: absolute;
+    z-index: 2;
+    right: 14.4%;
+    bottom: 17.5%;
+    opacity: 0;
+}
+
+#plan1 {
+    width: 25.4%;
+    height: 17%;
+    position: absolute;
+    z-index: 2;
+    left: 15.5%;
+    bottom: 17.5%;
+}
+
+#myCanvas1 {
+    width: 100%;
+    height: 100%;
+}
+
+.addpic2 {
+    right: 14.4%;
+    bottom: 17.5%;
+}
+
+#plan2 {
+    width: 25.4%;
+    height: 17%;
+    position: absolute;
+    z-index: 2;
+    right: 14.4%;
+    bottom: 17.5%;
+}
+
+#myCanvas2 {
+    width: 100%;
+    height: 100%;
+}
+
+.mainsubmit {
+    width: 80%;
+    height: 35px;
+    position: absolute;
+    z-index: 2;
+    left: 10%;
+    bottom: 5%;
+    border-radius: 20px;
+    border: 3px solid white;
+    background-color: #42a1c4;
+    color: white;
+    font-size: 16px;
+}
+
+.mainsubmit:focus {
+    outline: none;
+}
+
+.modal-clip {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.modal-dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.tips{
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    z-index: 2;
+    top: 15%;
+    text-align: center;
+}
+
+.tips2{
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    text-align: center;
+}
+
+.clip-button {
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    z-index: 2;
+    bottom: 10%;
+}
+
+.rotateL{
+    position: relative;
+    top: 21%;
+    left: 10%;
+    padding: 5px 10px;
+    border: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #4f3c00;
+    background-color: #f0b600;
+}
+
+.rotateR{
+    position: relative;
+    top: 21%;
+    left: 15%;
+    padding: 5px 10px;
+    border: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #4f3c00;
+    background-color: #f0b600;
+}
+
+.close-modal {
+    position: relative;
+    top: 21%;
+    left: 30%;
+    padding: 5px 10px;
+    border: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #4f3c00;
+    background-color: #f0b600;
+}
+
+.upload-modal {
+    position: relative;
+    top: 21%;
+    left: 35%;
+    padding: 5px 10px;
+    border: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #4f3c00;
+    background-color: #f0b600;
+}
+
+.center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    overflow: auto;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+#clipArea1 {
+    margin: 0 auto;
+    background-color: grey;
+    height: 100%;
+    width: 100%;
+}
+
+#clipArea2 {
+    margin: 0 auto;
+    background-color: grey;
+    height: 100%;
+    width: 100%;
+}
+
+.modal-content {
+    width: 100%;
+    height: 80%;
+    border: none;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+
+/*投票结果*/
+.votebg {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.vote_name {
+    width: 100%;
+    margin-top: 20px;
+    z-index: 2;
+    text-align: center;
+}
+
+.commitbtn {
+    width: 30%;
+    height: 35px;
+    border: 3px solid white;
+    background-color: #e88922;
+    color: white;
+    font-size: 16px;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+
+.commitbtn:focus {
+    outline: none;
+}
+
+.twopic{
+    top: 20%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.piccontrast {
+    width: 100%;
+    /*z-index: 2;*/
+}
+
+.contrast {
+    width: 34.5%;
+    height: 70%;
+    position: absolute;
+    z-index: 2;
+    top: 22%;
+}
+
+.contrast1 {
+    left: 8%;
+}
+
+.contrast2 {
+    right: 8%;
+}
+
+.showcomments {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.contrasts {
+    width: 100%;
+    z-index: 2;
+}
+
+.nocommentimg {
+    width: 90%;
+}
+
+.reshare {
+    width: 100%;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    z-index: 2;
+    line-height: 8px;
+    color: #373736;
+}
+
+.jiantou {
+    display: block;
+    width: 25.5px;
+    height: 48px;
+    z-index: 2;
+    margin: 5px auto;
+}
+
+.resharebtn {
+    width: 80%;
+    height: 40px;
+    z-index: 2;
+    border: 3px solid white;
+    background-color: #42a1c4;
+    color: white;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+.resharebtn:focus {
+    outline: none;
+}
+
+/*我要评论*/
+.commenttxt {
+    width: 80%;
+    height: auto;
+    top: 50px;
+    left: 10%;
+    position: absolute;
+    z-index: 2;
+    border-radius: 20px;
+    border: 3px solid #eff8fa;
+    background-color: #d8eaf0;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.importxt {
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.iptext {
+    height: 30px;
+    width: 68%;
+    border: 1px solid #7fb2c5;
+    padding-top: 0;
+    font-size: 14px;
+    color: #ccc;
+    padding-left: 5px;
+}
+
+.iptext:active{
+    color: #000;
+}
+
+.importbtn {
+    height: 36px;
+    width: 30%;
+    border-radius: 20px;
+    border: 3px solid #eff8fa;
+    color: white;
+    background-color: #eaa000;
+    font-size: 14px;
+}
+
+.importbtn:focus {
+    outline: none;
+}
+
+.iptext:focus {
+    outline: none;
+}
+
+.content {
+    border-radius: 50px;
+    font-size: 14px;
+    color: #504745;
+    border: 2px solid #f6f4e6;
+    background-color: #f7df9e;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+}
+
+.content-wrapper:nth-child(2n) .content {
+    float: right;
+}
+
+.content-wrapper:nth-child(2n+1) .content {
+    float: left;
+}
+
+.contrasts2 {
+    /*margin-top: 13px;*/
+    margin-bottom: 16px;
+}
+
+.contrastsinfo {
+    border-radius: 50px;
+    font-size: 14px;
+    color: #504745;
+    border: 3px solid #f6f4e6;
+    background-color: #f7df9e;
+    height: 35px;
+    width: 82%;
+    margin: 0 auto;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+
+.contrastsinfoleft {
+    float: left;
+}
+
+.contrastsinforight {
+    float: right;
+}
+
+.agreenum {
+    color: #ea7400;
+}
+
+.jiantou2 {
+    width: 16px;
+    height: 10px;
+}
+
+.showall {
+    margin-top: 13px;
+    font-size: 14px;
+    color: #373736;
+}
+.hideall{
+    margin-top: 13px;
+    font-size: 14px;
+    color: #373736;
+}
+
+.check {
+    top: 20%;
+    width: 80%;
+    height: 60%;
+    position: relative;
+    z-index: 1;
+    background-repeat: no-repeat;
+}
+
+.center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    overflow: auto;
+}
+
+.close {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    z-index: 2;
+    top: 21%;
+    right: 12%;
+
+}

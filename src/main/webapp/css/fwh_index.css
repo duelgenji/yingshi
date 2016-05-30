@@ -1,0 +1,311 @@
+body {
+    background: rgb(240, 240, 240);
+}
+
+p {
+    margin: 0;
+}
+
+.img-width {
+    width: 100%;
+}
+
+.index-img-box {
+    position: relative;
+    height: 20rem;
+    background: url("../img/banner@2x.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.index-img {
+    height: 20rem;
+}
+
+.index-title-zn {
+    width: 100%;
+    font-size: 20px;
+    color: #3c7499;
+    top: 85px;
+    text-align: center;
+    position: absolute;
+}
+
+.index-title-en {
+    width: 100%;
+    font-size: 12px;
+    color: #3c7499;
+    top: 110px;
+    text-align: center;
+    position: absolute;
+}
+
+.index-img-title {
+    height: 36px;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(33, 183, 150, 0.8);
+    display: inline-flex;
+    padding: 10px 20px;
+    font-weight: 100;
+}
+
+.pm {
+    width: 37%;
+    float: right;
+    text-align: right;
+}
+
+.temperature {
+    float: left;
+    width: 30%;
+}
+
+.area {
+    float: left;
+    width: 25%;
+}
+
+.weather {
+    float: left;
+    width: 10%;
+}
+
+.bg-color {
+    background: rgba(33, 183, 150, 0);
+}
+
+.serve-box {
+    margin: 1rem 0;
+    list-style: none;
+    padding: 0;
+    clear: both;
+    display: block;
+    height: 92px;
+}
+
+.serve-box > li {
+    width: 25%;
+    padding: 0 0.3rem;
+    float: left;
+}
+
+.serve-item {
+    text-align: center;
+}
+
+.serve-item img {
+    max-width: 100%;
+    min-height: 80px;
+    max-height: 100px;
+}
+
+.health-plan-box {
+    background: white;
+    margin-top: -7px;
+}
+
+.health-plan-title {
+    height: 43px;
+    line-height: 43px;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    font-weight: 200;
+    margin-top: 5px;
+    font-size: 14px;
+    padding-left: 16px;
+}
+
+.health-plan-title img {
+    height: 1.5rem;
+}
+
+.health-plan-title span {
+    margin-left: 10px;
+}
+
+.health-plan-data {
+    position: absolute;
+    right: 20px;
+    color: #a1a1a1;
+    font-size: 1rem;
+}
+
+.health-plan {
+    height: 43px;
+    padding-left: 16px;
+    border-bottom: 1px solid #eeeeee;
+
+}
+
+.health-plan-left {
+    height: 100%;
+    float: left;
+    line-height: 43px;
+
+}
+
+.health-plan-left > img {
+    height: 20px;
+}
+
+.health-plan-right {
+    float: left;
+    margin-left: 10px;
+    line-height: 43px;
+    color: #666;
+    font-size: 12px;
+}
+
+.health-right-text {
+    color: #aaaaaa;
+    font-weight: 200;
+    width: 100%;
+    height: 40px;
+}
+
+.health-package {
+    height: 120px;
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    clear: both;
+    display: inline-flex;
+    padding: 10px;
+}
+
+.health-left {
+    float: left;
+    width: 30%;
+
+}
+
+.health-left > img {
+    height: 100px;
+    width: 100px;
+    float: left;
+}
+
+.health-right {
+    float: left;
+    padding: 0 10px;
+    width: 70%;
+}
+
+.health-right-title {
+    text-align: left;
+    color: #555555;
+    margin-top: 0;
+    font-weight: 300;
+    font-size: 1.6rem;
+    height: 17px;
+}
+
+.no-health-plan-tel {
+    display: none;
+    /*position: absolute;*/
+    position: fixed;
+    top: 360px;
+    right: 25px;
+    width: 42px;
+    z-index:1;
+}
+.one-health-plan-tel {
+    /*display: block;*/
+    /*position: absolute;*/
+    position: fixed;
+    top: 506px;
+    right: 25px;
+    width: 42px;
+    z-index:1;
+}
+.two-health-plan-tel {
+    display: block;
+    /*position: absolute;*/
+    position: fixed;
+    top: 519px;
+    right: 28px;
+    width: 42px;
+    z-index:1;
+}
+
+
+.hiddenImg{
+    display: none;
+}
+.visibleImg{
+    display: block;
+}
+
+
+/*.health-right-text {*/
+    /*color: #aaaaaa;*/
+    /*font-weight: 200;*/
+    /*width: 100%;*/
+/*}*/
+
+.health-right-footer {
+    padding: 10px 0;
+    width: 100%;
+    height: 40px;
+    display: inline-flex;
+}
+
+.health-right-price {
+    font-size: 16px;
+    color: #d58512;
+    float: left;
+    width: 50%;
+}
+
+.health-right-button {
+    position: relative;
+    top: -10px;
+    float: right;
+    width: 50%;
+    padding: 0 10px;
+}
+
+.health-right-btn {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    width: 60px;
+    line-height: 24px;
+    font-size: 14px;
+    float: right;
+    margin: 0;
+}
+
+button {
+    box-shadow: none;
+    border: none;
+}
+
+
+.overflowy{
+    overflow-y: hidden;
+}
+
+.loadingDiv{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9989;
+    background-color: rgba(255,255,255,0.8);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.img{
+    /*margin-top: 200px;*/
+    animation:rotation 1s infinite linear;
+}
+.waitMe_container .waitMe_progress.rotation > div {width:60px;height:60px;margin:auto;border-radius:100%;border-width:6px;border-style:solid;border-left-color: rgba(139, 30, 30, 0)!important;border-right-color:transparent!important;border-bottom-color:transparent!important;animation:rotation 1s infinite linear}
+@keyframes rotation {
+    0% {transform:rotate(0deg)}
+    100% {transform:rotate(360deg)}
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+    <title>大家评评，我家宝宝和我无敌像吗？</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="css/babylooks.css" rel="stylesheet">
+    <link href="css/jquery.shCircleLoader.css" rel="stylesheet">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.shCircleLoader-min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body class="body">
+<div>
+    <div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+        <img src="img/babylooks/share.jpg" width='700'>
+    </div>
+    <img id="img" class="mainImg" src="img/babylooks/main.jpg">
+    <div class="mloader" id="loader" style="display: none"></div>
+    <div id="plan1">
+        <canvas id="myCanvas1"></canvas>
+    </div>
+    <img id="uploadpic1" class="addpic addpic1" src="img/babylooks/addpic.jpg">
+    <div id="plan2">
+        <canvas id="myCanvas2"></canvas>
+    </div>
+    <img id="uploadpic2" class="addpic addpic2" src="img/babylooks/addpic2.jpg">
+    <input type="file" id="file1" onchange="file1Click()">
+    <input type="file" id="file2" onchange="file2Click()">
+    <input type="hidden" id="imgUrl1" style="opacity: 0;position: fixed;bottom: -100px">
+    <input type="hidden" id="imgUrl2" style="opacity: 0;position: fixed;bottom: -100px">
+    <button id="imgsave" class="mainsubmit">确认上传</button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-clip" role="document">
+        <div class="modal-dialog" role="document">
+            <!--<div class="tips2">图片可放大或缩小</div>-->
+            <div id="clipArea1" style="height: 100%"></div>
+            <img src="" fileName="" id="hit1" style="display:none; z-index: 9">
+        </div>
+        <div class="clip-button">
+            <button class="rotateL">左转</button>
+            <button class="rotateR">右转</button>
+            <button type="button" class="close-modal" data-dismiss="modal">返回</button>
+            <button id="clipBtn1" class="upload-modal">确定</button>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-clip" role="document">
+
+        <div class="modal-dialog " role="document" style="width: 100%; height: 100%; padding: 0; margin: 0">
+            <!--<div class="tips2">图片可放大或缩小</div>-->
+            <div id="clipArea2" style="height: 100%"></div>
+            <img src="" fileName="" id="hit2" style="display:none; z-index: 9">
+        </div>
+        <div class="clip-button" style="position: absolute;z-index: 10;">
+            <button class="rotateL">左转</button>
+            <button class="rotateR">右转</button>
+            <button type="button" class="close-modal" data-dismiss="modal">返回</button>
+            <button id="clipBtn2" class="upload-modal">确定</button>
+        </div>
+    </div>
+</div>
+<script src="js/hammer.js"></script>
+<script src="js/iscroll-zoom.js"></script>
+<script src="js/jquery.photoClip.js"></script>
+<script src="js/babylooks.js"></script>
+<script>
+    $('#loader').shCircleLoader({color: "#fff"});
+
+    $(document).ready(function(){
+
+       self.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx61f6f47b56dfa5fd&redirect_uri=http://localhost:8080/weixin_babylooks_comment.html&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
+
+    });
+
+</script>
+</body>
+</html>

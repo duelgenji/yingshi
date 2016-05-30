@@ -1,0 +1,140 @@
+body {
+    background-color: #f0f0f0;
+    font-size: 16px;
+}
+.container{
+    padding: 0;
+    background-color: #eee;
+    min-height: 800px;
+}
+
+.hmb-header {
+    height: 80px;
+    background-color: #fff;
+    margin: 3px 0px 1px 0px;
+    border-radius: 10px;
+}
+.float-bloodsuger div{
+    float: left;
+}
+.hmb-header-block-left{
+    position: relative;
+    width: 35%;
+    height: 100%;
+    border-right: 1px solid #f0f0f0;
+}
+
+.hmb-header-block-left img {
+    height: 4rem;
+}
+
+.hmb-header-block-right{
+    width: 65%;
+    height: 100%;
+}
+.hmb-header-block-left div {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    padding: 15px 0;
+}
+.hmb-header-block-right div {
+    position: relative;
+    width: 33.33333%;
+    height: 100%;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.hmb-list {
+    padding-left: 0;
+    background-color: #fff;
+    margin: 1px 0px 4px 0px;
+    border-radius: 10px;
+}
+
+.hmb-list li {
+    display: block;
+    height: 10rem;
+    border-bottom: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+.hmb-row-left {
+    height: 100%;
+    width: 7rem;
+    line-height: 10rem;
+    float: left;
+    text-align: center;
+}
+
+.hmb-row-left img {
+    height: 4rem;
+}
+
+.hmb-row-right {
+    height: 100%;
+    width: auto;
+    margin-left: 6rem;
+}
+
+.hmb-row-right-date {
+    color: #999;
+    text-align: right;
+    padding-right: 1rem;
+    font-weight: lighter;
+    font-size: 15px
+}
+
+.hmb-row-right-title {
+    padding-top: 0px;
+    color: #212121;
+    font-size: 1.2em;
+    height: 2.5rem;
+}
+
+.hmb-row-right-content {
+    color: #666;
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
+
+
+.hmb-row-right-content img {
+    width: 1.5rem;
+    padding-bottom: 4px;
+    padding-right: 4px;
+}
+
+
+.hmb-row-right-normal-no {
+    color: #3bc5a2;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    /*padding-left: 1.5rem;*/
+}
+
+.hmb-row-right-normal {
+    color: #3bc5a2;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding-left: 1.5rem;
+}
+
+.pfont-cha{
+    color:#999;
+    font-weight: lighter;
+    font-size: 16px;
+}
+
+.pfont-num{
+    font-size: 18px
+}
+
+.color-high{
+    color:#ffa800;
+}
+.color-low{
+    color:#7BCBff;
+}
