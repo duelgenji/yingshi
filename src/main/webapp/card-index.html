@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>有了宝贝——DIY专属你的圣诞贺卡</title>
+    <link rel="shortcut icon" href="public/img/favicon.ico">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/swiper.min.css">
+    <link rel="stylesheet" href="public/css/animate.min.css">
+    <link rel="stylesheet" href="public/css/card-index.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <!-------------slide1----------------->
+        <section class="swiper-slide">
+            <div class="index-back-bottom">
+                <div class="index-back-top"></div>
+            </div>
+            <img src="public/img/index/arrow.png" style="width:38px;height:38px; top:460px; left:150px;" id="array"
+                 class="resize">
+        </section>
+        <!---------------slide2-------------->
+        <section class="swiper-slide page">
+            <div class="snow">
+                <div class="menu">
+                    <img class="back center" src="public/img/index/menu.png">
+                    <img id="pregnant" class="center pregnant" src="public/img/index/pregnant.png">
+                    <img id="mother" class="center mother" src="public/img/index/mother.png">
+                    <img id="santaclaus" class="center for-user" src="public/img/index/user.png">
+                </div>
+                <div class="tree"></div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     style="overflow: hidden">
+    <div class="modal-dialog " role="document" style="height: 100%">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="check center" id="check"></div>
+    </div>
+</div>
+<script src="public/js/jquery.min.js"></script>
+<script src="public/js/bootstrap.min.js"></script>
+<script src="public/js/swiper.min.js"></script>
+<script src="public/js/swiper.animate.min.js"></script>
+<script src="public/js/card-index.js"></script>
+<script src="public/js/wxconfig.js"></script>
+<script src="public/js/hashes.min.js"></script>
+<script>
+
+
+
+    $(document).ready(function(){
+
+        var SHA1 = new Hashes.SHA1;
+
+        var appId =  "wx61f6f47b56dfa5fd";
+        var timestamp =  parseInt(new Date().getTime()/1000);
+        var nonceStr =  createNonceStr();
+
+        var jsapi_ticket = "bxLdikRXVbTPdHSM05e5u878nWAgQuZ-tahYA6kniGBWc7STOP8hX6ht1O4qI7m01T3TaLGlJnFB0xD38PqHXQ";
+        var current_url = location.href;
+
+        var string = "jsapi_ticket="+jsapi_ticket+"&noncestr="+nonceStr+"&timestamp="+timestamp+"&url="+current_url;
+        var signature = SHA1.hex(string);
+
+
+        wx.config({
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: appId, // 必填，公众号的唯一标识
+            timestamp: timestamp , // 必填，生成签名的时间戳
+            nonceStr: nonceStr, // 必填，生成签名的随机串
+            signature: signature,// 必填，签名，见附录1
+            jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQZone"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        wx.ready(function () {
+            wx.onMenuShareAppMessage({
+                title: '自定义标题分享123', // 分享标题
+                link: current_url, // 分享链接
+                desc: "自定义描述abc",
+                imgUrl: 'http://7xi893.com2.z0.glb.clouddn.com/self_20160524170156184', // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                fail: function (){
+                },
+                complete : function(){
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareTimeline({
+                title: '自定义标题分享123', // 分享标题
+                link: current_url, // 分享链接
+                desc: "自定义描述abc",
+                imgUrl: 'http://7xi893.com2.z0.glb.clouddn.com/self_20160524170156184', // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                }
+            });
+
+        });
+
+
+
+    });
+
+
+</script>
+</body>
+</html>
