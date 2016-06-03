@@ -21,6 +21,7 @@ $(document).ready(function () {
 });
 
 $.get(commonUrl + "wx/retrieveBoat/" + id_, function (data) {
+    console.log(data);
     if (data.success == "1") {
         $("#wish").html(data.userBoat.title);
         $("#avatar").attr("src", data.userBoat.avatar1);

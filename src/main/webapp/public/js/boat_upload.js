@@ -100,9 +100,11 @@ $('#save').on('click', function () {
     var avatarUrl1 = $('#imgUrl').val().split(',')[1];
     var avatarUrl2 = $('#imgUrl1').val().split(',')[1];
     var data = {
-        "title": "宝妈",
         "avatar1": avatarUrl1,
-        "avatar2": avatarUrl2
+        "avatar2": avatarUrl2,
+        "openId": "wxt_123asdas12",
+        "headimgurl": "http://o84r72kbf.bkt.clouddn.com/boat/20160602155709250",
+        "nickname": "test_nickname"
     };
     $.ajax({
         type: 'POST',
