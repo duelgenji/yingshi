@@ -22,8 +22,8 @@ public class WxUtils {
 
     private static final String WX_URL = "https://api.weixin.qq.com/cgi-bin/";
 
-    public static final String WX_APP_ID = "wx61f6f47b56dfa5fd";
-    public static final String WX_APP_SECRET = "29efdccf0f498505253e58ba3f2aacd5";
+    public static final String WX_APP_ID = "wxa572b73e050e1bb4";
+    public static final String WX_APP_SECRET = "95fb90736d048b00d90448420cf9538b";
 
     public enum RequestType{
         GET,POST
