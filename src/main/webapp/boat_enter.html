@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>友谊的小船</title>
+</head>
+<body>
+
+</body>
+<script src="public/js/jquery.min.js"></script>
+<script>
+
+
+    $(document).ready(function(){
+
+        var redirect_url = "http://www.zhixin.me/ysweb/boat_redirect.html";
+
+        setTimeout(function(){
+            self.location="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa572b73e050e1bb4&redirect_uri="+redirect_url+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
+        },3000);
+
+    });
+
+
+</script>
+</html>

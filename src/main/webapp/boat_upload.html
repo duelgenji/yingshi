@@ -6,34 +6,51 @@
     <title>友谊的小船</title>
     <link rel="shortcut icon" href="public/img/favicon.ico">
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/css/card-edit.css">
+    <link rel="stylesheet" href="public/css/boat_upload.css">
 </head>
-<body style="background-color: #afe9dd;">
+<body>
 <div class="container">
-    <div class="wish">
-        <textarea id="description" rows="2" placeholder="请输入祝福语"></textarea>
+
+    <div class="boat-title">
+        <img src="public/img/boat/boat_title.png"/>
     </div>
-    <div class="card-container-two">
-        <div class="btn-img-add">
-            <input type="file" id="file" accept="image/*" onchange="clip();">
+
+    <div class="card-container-two-background">
+
+        <div class="card-container-two">
+            <div class="btn-img-add">
+                <input type="file" id="file" accept="image/*" onchange="clip();">
+            </div>
+            <div class="btn-img-add1">
+                <input type="file" id="file1" accept="image/*" onchange="clip1();">
+            </div>
+            <div id="plan">
+                <canvas id="myCanvas"></canvas>
+            </div>
+            <div id="plan1">
+                <canvas id="myCanvas1"></canvas>
+            </div>
+            <img id="upload-btn" class="add" src="public/img/boat/boat_avatar.png">
+            <img id="upload-baby" class="add-baby" src="public/img/boat/boat_avatar.png ">
+            <div class="card-back"><img src="public/img/boat/boat_upload.png"></div>
+            <input type="hidden" id="imgUrl" style="opacity: 0;position: fixed;bottom: -100px">
+            <input type="hidden" id="imgUrl1" style="opacity: 0;position: fixed;bottom: -100px">
         </div>
-        <div class="btn-img-add1">
-            <input type="file" id="file1" accept="image/*" onchange="clip1();">
-        </div>
-        <div id="plan">
-            <canvas id="myCanvas"></canvas>
-        </div>
-        <div id="plan1">
-            <canvas id="myCanvas1"></canvas>
-        </div>
-        <img id="upload-btn" class="add" src="public/img/edit/for-mother-add.png">
-        <img id="upload-baby" class="add-baby" src="public/img/edit/for-mother-baby.png">
-        <div class="card-back"><img src="public/img/edit/for-mother.png"></div>
-        <input type="hidden" id="imgUrl" style="opacity: 0;position: fixed;bottom: -100px">
-        <input type="hidden" id="imgUrl1" style="opacity: 0;position: fixed;bottom: -100px">
+
+
     </div>
-    <div id="save" class="button-content">
-        <button>提交预览</button>
+
+    <div class="button-content">
+        <div class="btn-img" id="rescue">
+            <img src="public/img/boat/btn_rescue.png">
+        </div>
+        <div class="btn-img" id="refuse">
+            <img src="public/img/boat/btn_refuse.png">
+        </div>
+    </div>
+
+    <div class="ys-1v1">
+        <a href="http://m.ys1vs1.icoc.in/index.jsp"><img src="public/img/boat/ys1v1.png"/></a>
     </div>
 </div>
 
@@ -50,7 +67,6 @@
         </div>
         <div class="clip-message">双指捏合或拖动图片以选取头像</div>
     </div>
-    <img src="public/img/edit/img-back-mother.png" class="img-back-pregnant center">
 </div>
 
 <!-- Modal -->
@@ -66,7 +82,6 @@
         </div>
         <div class="clip-message">双指捏合或拖动图片以选取头像</div>
     </div>
-    <img src="public/img/edit/img-back-baby.png" class="img-back-baby center">
 </div>
 
 <!-- Modal -->
@@ -85,6 +100,8 @@
         </div>
     </div>
 </div>
+
+
 <script src="public/js/jquery.min.js"></script>
 <script src="public/js/bootstrap.min.js"></script>
 <script src="public/js/sonic.js"></script>
@@ -93,7 +110,6 @@
 <script src="public/js/jquery.photoClip.js"></script>
 <script src="public/js/common.js"></script>
 <script src="public/js/boat_upload.js"></script>
-
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="public/js/wxconfig.js"></script>
@@ -105,7 +121,7 @@
         var current_url = location.href;
 
         $.ajax({
-            url:"http://192.168.1.3:8080/wx/getTicket",
+            url:"http://172.16.76.19:8080/wx/getTicket",
             type:"GET",
             success:function(data){
                 var SHA1 = new Hashes.SHA1;
@@ -129,7 +145,7 @@
 
             wx.onMenuShareAppMessage({
                 title: '自定义标题分享123', // 分享标题
-                link: current_url, // 分享链接
+                link: current_url,
                 desc: "自定义描述abc",
                 imgUrl: 'http://7xi893.com2.z0.glb.clouddn.com/self_20160524170156184', // 分享图标
                 success: function () {

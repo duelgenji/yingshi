@@ -1,6 +1,12 @@
 /**
  * Created by qqy on 15/12/18.
  */
+function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return (r[2]);
+    return null;
+}
 
 // 初始化裁剪窗口
 $("#clipArea").photoClip({
@@ -102,20 +108,28 @@ $('#save').on('click', function () {
     var data = {
         "avatar1": avatarUrl1,
         "avatar2": avatarUrl2,
-        "openId": "wxt_123asdas12",
-        "headimgurl": "http://o84r72kbf.bkt.clouddn.com/boat/20160602155709250",
-        "nickname": "test_nickname"
+        "openId": GetQueryString("openId")
     };
     $.ajax({
         type: 'POST',
         url: commonUrl + 'wx/generateBoat',
         data: data,
         success: function (data) {
-            console.log(data);
+
+            if(data.success ==1){
+                self.location = "boat_show.html?boat="+data.boat;
+            }
+
         },
         error: function () {
             $('#my-message').text("提交失败");
             $('#textModal').modal('show');
         }
     });
+});
+
+$('#reset').on('click', function () {
+
+    location.reload(true);
+
 });

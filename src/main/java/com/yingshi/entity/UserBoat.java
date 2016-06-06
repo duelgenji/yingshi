@@ -17,16 +17,6 @@ public class UserBoat extends AbstractBaseEntity<Long> {
     private String openId;
 
     /**
-     * 创建者 微信头像
-     */
-    private String headimgurl;
-
-    /**
-     * 创建者 微信昵称
-     */
-    private String nickname;
-
-    /**
      * 用于网页传参 标示UserBoat唯一性
      */
     private String guid;
@@ -45,22 +35,6 @@ public class UserBoat extends AbstractBaseEntity<Long> {
 
     public void setOpenId(String openId) {
         this.openId = openId;
-    }
-
-    public String getHeadimgurl() {
-        return headimgurl;
-    }
-
-    public void setHeadimgurl(String headimgurl) {
-        this.headimgurl = headimgurl;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
     }
 
     public String getGuid() {

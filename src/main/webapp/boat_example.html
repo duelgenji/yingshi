@@ -2,9 +2,152 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
     <title>友谊的小船</title>
+    <link rel="shortcut icon" href="public/img/favicon.ico">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/boat_upload.css">
 </head>
 <body>
+<div class="container">
 
+    <div class="boat-title">
+        <img src="public/img/boat/boat_title.png"/>
+    </div>
+
+    <div class="card-container-two-background">
+
+        <div class="card-container-two">
+            <div class="btn-img-add">
+                <input type="file" id="file" accept="image/*" onchange="clip();">
+            </div>
+            <div class="btn-img-add1">
+                <input type="file" id="file1" accept="image/*" onchange="clip1();">
+            </div>
+            <div id="plan">
+                <canvas id="myCanvas"></canvas>
+            </div>
+            <div id="plan1">
+                <canvas id="myCanvas1"></canvas>
+            </div>
+            <img id="upload-btn" class="add" src="http://o84r72kbf.bkt.clouddn.com/boat/20160606161311587">
+            <img id="upload-baby" class="add-baby" src="http://o84r72kbf.bkt.clouddn.com/boat/20160606161311723">
+            <div class="card-back"><img src="public/img/boat/boat_upload.png"></div>
+        </div>
+
+
+    </div>
+
+    <div class="boat-content">
+        <p>没想到你是这种霍霍</p>
+        <p>快快送我一辆跑车</p>
+        <p>OR发我<span style="color: #F57878">5.20</span>的红包!</p>
+        <p>我们还能在一起!</p>
+    </div>
+
+
+    <div class="button-content">
+        <div class="btn-img" id="rescue">
+            <img src="public/img/boat/btn_rescue.png">
+        </div>
+        <div class="btn-img" id="refuse">
+            <img src="public/img/boat/btn_refuse.png">
+        </div>
+    </div>
+
+    <div class="button-content">
+        <div class="btn-content">
+            <div class="btn-content-c">
+                安迪、大S、尔康、M鹿M、超人等234987人帮忙拯救了友谊的小船
+            </div>
+        </div>
+        <div class="btn-content">
+            <div class="btn-content-c">
+                安迪、大S、尔康、M鹿M、超人等234987人帮忙拯救了友谊的小船
+            </div>
+        </div>
+    </div>
+
+    <div class="want-play">
+        <a href="boat_enter.html">我也要玩</a><span class="want-span-1"> ></span><span class="want-span-2">></span><span class="want-span-3">></span>
+    </div>
+
+    <div class="ys-1v1">
+        <a href="http://m.ys1vs1.icoc.in/index.jsp"><img src="public/img/boat/ys1v1.png"/></a>
+    </div>
+</div>
+
+
+<script src="public/js/jquery.min.js"></script>
+<script src="public/js/bootstrap.min.js"></script>
+<script src="public/js/common.js"></script>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="public/js/wxconfig.js"></script>
+<script src="public/js/hashes.min.js"></script>
+<script>
+
+
+    $(document).ready(function(){
+
+
+        $('#rescue').on('click', function () {
+            alert("执行拯救动画");
+            self.location = "boat_enter.html";
+        });
+        $('#refuse').on('click', function () {
+            alert("执行掀翻动画");
+            self.location = "boat_enter.html";
+        });
+
+        var current_url = location.href;
+
+        $.ajax({
+            url:"http://172.16.76.19:8080/wx/getTicket",
+            type:"GET",
+            success:function(data){
+                var SHA1 = new Hashes.SHA1;
+                var appId =  "wxa572b73e050e1bb4";
+                var timestamp =  parseInt(new Date().getTime()/1000);
+                var nonceStr =  createNonceStr();
+                var jsapi_ticket = data.token;
+                var string = "jsapi_ticket="+jsapi_ticket+"&noncestr="+nonceStr+"&timestamp="+timestamp+"&url="+current_url;
+                var signature = SHA1.hex(string);
+                wx.config({
+                    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: appId, // 必填，公众号的唯一标识
+                    timestamp: timestamp , // 必填，生成签名的时间戳
+                    nonceStr: nonceStr, // 必填，生成签名的随机串
+                    signature: signature,// 必填，签名，见附录1
+                    jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+            }
+        });
+        wx.ready(function () {
+
+            wx.onMenuShareAppMessage({
+                title: '自定义标题分享123', // 分享标题
+                link: current_url,
+                desc: "自定义描述abc",
+                imgUrl: 'http://7xi893.com2.z0.glb.clouddn.com/self_20160524170156184', // 分享图标
+                success: function () {
+                }
+            });
+            wx.onMenuShareTimeline({
+                title: '自定义标题分享123', // 分享标题
+                link: current_url, // 分享链接
+                desc: "自定义描述abc",
+                imgUrl: 'http://7xi893.com2.z0.glb.clouddn.com/self_20160524170156184', // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                }
+            });
+        });
+
+
+    });
+
+
+</script>
 </body>
 </html>

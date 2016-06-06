@@ -20,7 +20,8 @@ import java.util.Map;
  */
 public class WxUtils {
 
-    private static final String WX_URL = "https://api.weixin.qq.com/cgi-bin/";
+    public static final String WX_URL = "https://api.weixin.qq.com/cgi-bin/";
+    public static final String WX_SNS_URL = "https://api.weixin.qq.com/sns/";
 
     public static final String WX_APP_ID = "wxa572b73e050e1bb4";
     public static final String WX_APP_SECRET = "95fb90736d048b00d90448420cf9538b";
@@ -43,13 +44,13 @@ public class WxUtils {
         try {
 
             if(requestType.equals(RequestType.GET)){
-                result = restTemplate.getForObject(WX_URL + url , String.class);
+                result = restTemplate.getForObject( url , String.class);
 
             }else{
                 HttpHeaders headers = new HttpHeaders();
 
                 HttpEntity<Map<String, String>> request = new HttpEntity<>(map, headers);
-                result = restTemplate.postForObject(WX_URL + url , request, String.class);
+                result = restTemplate.postForObject( url , request, String.class);
             }
 
             json = new JSONObject(result);

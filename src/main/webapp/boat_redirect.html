@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>redirecting...</title>
+</head>
+<body>
+
+</body>
+<script src="public/js/jquery.min.js"></script>
+<script>
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return (r[2]);
+        return null;
+    }
+    $(document).ready(function(){
+        var code = GetQueryString("code");
+
+        $.get("http://172.16.76.19:8080/wx/wxRedirect?code="+code, function (data) {
+
+            self.location = data.redirect_url;
+
+        });
+
+    });
+
+
+</script>
+</html>

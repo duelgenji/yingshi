@@ -2,6 +2,7 @@ package com.yingshi.controller;
 
 import com.yingshi.entity.Boat;
 import com.yingshi.entity.UserBoat;
+import com.yingshi.entity.WxUser;
 import com.yingshi.repository.BoatRepository;
 import com.yingshi.repository.UserBoatRepository;
 import com.yingshi.service.WxService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sun.misc.BASE64Decoder;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -59,9 +61,7 @@ public class WxController {
     @RequestMapping("generateBoat")
     public Map<String ,Object> generateBoat(@RequestParam String avatar1,
                                             @RequestParam String avatar2,
-                                            @RequestParam String openId,
-                                            @RequestParam String headimgurl,
-                                            @RequestParam String nickname){
+                                            @RequestParam String openId){
         Map<String, Object> res = new HashMap<>();
 
         UserBoat userBoat = new UserBoat();
@@ -76,8 +76,6 @@ public class WxController {
 
 
                 userBoat.setOpenId(openId);
-                userBoat.setHeadimgurl(headimgurl);
-                userBoat.setNickname(nickname);
 
                 Boat boat = boatRepository.findByBoatNo((int)(Math.random()*(boatRepository.count())+1));
 
@@ -94,7 +92,7 @@ public class WxController {
             }
         }
         res.put("success", 1);
-        res.put("boatId", userBoat.getGuid());
+        res.put("boat", userBoat.getGuid());
         return res;
     }
 
@@ -147,6 +145,26 @@ public class WxController {
 
         res.put("success", 1);
         return res;
+    }
+
+
+    /**
+     * wx 网页授权 重定向
+     */
+    @Transactional
+    @RequestMapping("wxRedirect")
+    public Map<String ,Object>  wxRedirect(
+            @RequestParam String code,
+            HttpServletResponse response){
+
+        WxUser wxUser = wxService.getUserInfo(wxService.getSNSAccessToken(code));
+        //        response.sendRedirect("http://www.zhixin.me/boat_upload.html?openId="+wxUser.getOpenId());
+
+        Map<String, Object> res = new HashMap<>();
+        res.put("success", 1);
+        res.put("redirect_url", "http://www.zhixin.me/ysweb/boat_example.html?openId="+wxUser.getOpenId());
+        return res;
+
     }
 
 }
