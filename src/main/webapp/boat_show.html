@@ -6,112 +6,116 @@
     <title>友谊的小船</title>
     <link rel="shortcut icon" href="public/img/favicon.ico">
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/css/screen.css">
+    <link rel="stylesheet" href="public/css/boat_upload.css">
 </head>
-<body style="background-color: #afe9dd;" onLoad="init()">
-<div style="max-width: 414px; margin: 0 auto ">
-    <div class="wish-container">
-        <span id="wish" class="wish-content"></span>
+<body>
+<div class="container">
+
+    <div class="boat-title">
+        <img src="public/img/boat/boat_title.png"/>
     </div>
-    <div class="back-container-baby">
-        <div class="pregnant-back">
-            <div id="avatar-content" class="pregnant-avatar center">
-                <img id="avatar" class="img1" src="">
-                <img id="avatar1" class="img2" src="">
+
+    <div class="card-container-two-background">
+
+        <div class="card-container-two">
+            <div class="btn-img-add">
+            </div>
+            <div class="btn-img-add1">
+            </div>
+            <div id="plan">
+                <canvas id="myCanvas"></canvas>
+            </div>
+            <div id="plan1">
+                <canvas id="myCanvas1"></canvas>
+            </div>
+            <img id="upload-btn" class="add" src="public/img/boat/boat_avatar.png">
+            <img id="upload-baby" class="add-baby" src="public/img/boat/boat_avatar.png">
+            <div class="card-back"><img src="public/img/boat/boat_upload.png"></div>
+        </div>
+
+
+    </div>
+
+    <img id="boat-icon" class="boat-icon" src=""/>
+
+    <div class="boat-content">
+        <p id="boatTitle"></p>
+        <p><span id="boatText"></span><span id="present"></span></p>
+        <p>OR发我<span id="money" style="color: #F57878"></span>的红包!</p>
+        <p id="result"></p>
+    </div>
+
+
+    <div class="button-content">
+        <div class="btn-img" id="rescue">
+            <img src="public/img/boat/btn_rescue.png">
+        </div>
+        <div class="btn-img" id="refuse">
+            <img src="public/img/boat/btn_refuse.png">
+        </div>
+    </div>
+
+    <div class="button-content">
+        <div class="btn-content">
+            <div class="btn-content-c">
+                安迪、大S、尔康、M鹿M、超人等234987人帮忙拯救了友谊的小船
+            </div>
+        </div>
+        <div class="btn-content">
+            <div class="btn-content-c">
+                安迪、大S、尔康、M鹿M、超人等234987人帮忙拯救了友谊的小船
             </div>
         </div>
     </div>
-    <div class="button-position">
-        <div class="button-share">
-            <button id="edit" class="button-left">我也要制作</button>
-            <button id="share" class="button-right">分享给朋友</button>
-        </div>
+
+    <div id="want_play" class="want-play">
+        <span class="want-play-span">我也要玩</span><span class="want-span-1"> ></span><span class="want-span-2">></span><span class="want-span-3">></span>
+    </div>
+
+    <div class="ys-1v1">
+        <a href="http://m.ys1vs1.icoc.in/index.jsp"><img src="public/img/boat/ys1v1.png"/></a>
     </div>
 </div>
-<div class="audio-content">
-    <!--<audio id="audio" src="public/audio/JingleBell.m4a" loop autoplay controls></audio>-->
-    <span id="play" class="glyphicon glyphicon-headphones"></span>
-</div>
-<div id="snow"></div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-share" role="document">
-        <button type="button" class="close"
-                data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-</div>
+
+
 <script src="public/js/jquery.min.js"></script>
 <script src="public/js/bootstrap.min.js"></script>
 <script src="public/js/common.js"></script>
 <script src="public/js/boat_show.js"></script>
 
-<script src="public/js/threeCanvas.js"></script>
-<script src="public/js/snow.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="public/js/wxconfig.js"></script>
+<script src="public/js/hashes.min.js"></script>
 <script>
-    var SCREEN_WIDTH = window.innerWidth;
-    var SCREEN_HEIGHT = window.innerHeight;
 
-    var container;
-    var particle;
-    var camera;
-    var scene;
-    var renderer;
-    var mouseX = 0;
-    var mouseY = 0;
-    var windowHalfX = window.innerWidth / 2;
-    var windowHalfY = window.innerHeight / 2;
-    var particles = [];
-    var particleImage = new Image();//THREE.ImageUtils.loadTexture( "img/ParticleSmoke.png" );
-    particleImage.src = 'public/img/ParticleSmoke.png';
 
-    function init() {
-//        container = document.createElement('div');
-        container = document.getElementById('snow');
-        document.body.appendChild(container);
+    $(document).ready(function(){
 
-        camera = new THREE.PerspectiveCamera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000);
-        camera.position.z = 1000;
+        var openId = GetQueryString("openId");
 
-        scene = new THREE.Scene();
-        scene.add(camera);
+        $('#rescue').on('click', function () {
+            alert("执行拯救动画");
+            forward();
+        });
+        $('#refuse').on('click', function () {
+            alert("执行掀翻动画");
+            forward();
+        });
 
-        renderer = new THREE.CanvasRenderer();
-        renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-        var material = new THREE.ParticleBasicMaterial({map: new THREE.Texture(particleImage)});
-        for (var i = 0; i < 500; i++) {
+        $("#want_play").on("click",function(){
+            forward();
+        });
 
-            particle = new Particle3D(material);
-            particle.position.x = Math.random() * 2000 - 1000;
-            particle.position.y = Math.random() * 2000 - 1000;
-            particle.position.z = Math.random() * 2000 - 1000;
-            particle.scale.x = particle.scale.y = 1;
-            scene.add(particle);
-
-            particles.push(particle);
-        }
-        container.appendChild(renderer.domElement);
-        setInterval(loop, 1000 / 60);
-    }
-
-    function loop() {
-        for (var i = 0; i < particles.length; i++) {
-            var particle = particles[i];
-            particle.updatePhysics();
-            with (particle.position) {
-                if (y < -1000) y += 2000;
-                if (x > 1000) x -= 2000;
-                else if (x < -1000) x += 2000;
-                if (z > 1000) z -= 2000;
-                else if (z < -1000) z += 2000;
+        function forward(){
+            if(openId){
+                self.location = "boat_upload.html?openId="+openId;
+            }else{
+                self.location = "boat_enter.html";
             }
         }
-        camera.position.x += ( mouseX - camera.position.x ) * 0.05;
-        camera.position.y += ( -mouseY - camera.position.y ) * 0.05;
-        camera.lookAt(scene.position);
-        renderer.render(scene, camera);
-    }
+    });
+
+
 </script>
 </body>
 </html>

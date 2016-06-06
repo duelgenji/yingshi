@@ -19,10 +19,8 @@
 
         <div class="card-container-two">
             <div class="btn-img-add">
-                <input type="file" id="file" accept="image/*" onchange="clip();">
             </div>
             <div class="btn-img-add1">
-                <input type="file" id="file1" accept="image/*" onchange="clip1();">
             </div>
             <div id="plan">
                 <canvas id="myCanvas"></canvas>
@@ -68,8 +66,8 @@
         </div>
     </div>
 
-    <div class="want-play">
-        <a href="boat_enter.html">我也要玩</a><span class="want-span-1"> ></span><span class="want-span-2">></span><span class="want-span-3">></span>
+    <div id="want_play" class="want-play">
+        <span class="want-play-span">我也要玩</span><span class="want-span-1"> ></span><span class="want-span-2">></span><span class="want-span-3">></span>
     </div>
 
     <div class="ys-1v1">
@@ -90,20 +88,33 @@
 
     $(document).ready(function(){
 
+        var openId = GetQueryString("openId");
 
         $('#rescue').on('click', function () {
             alert("执行拯救动画");
-            self.location = "boat_enter.html";
+            forward();
         });
         $('#refuse').on('click', function () {
             alert("执行掀翻动画");
-            self.location = "boat_enter.html";
+            forward();
         });
+
+        $("#want_play").on("click",function(){
+            forward();
+        });
+
+        function forward(){
+            if(openId){
+                self.location = "boat_upload.html?openId="+openId;
+            }else{
+                self.location = "boat_enter.html";
+            }
+        }
 
         var current_url = location.href;
 
         $.ajax({
-            url:"http://172.16.76.19:8080/wx/getTicket",
+            url:commonUrl+"wx/getTicket",
             type:"GET",
             success:function(data){
                 var SHA1 = new Hashes.SHA1;
@@ -114,7 +125,7 @@
                 var string = "jsapi_ticket="+jsapi_ticket+"&noncestr="+nonceStr+"&timestamp="+timestamp+"&url="+current_url;
                 var signature = SHA1.hex(string);
                 wx.config({
-                    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                     appId: appId, // 必填，公众号的唯一标识
                     timestamp: timestamp , // 必填，生成签名的时间戳
                     nonceStr: nonceStr, // 必填，生成签名的随机串
@@ -126,18 +137,18 @@
         wx.ready(function () {
 
             wx.onMenuShareAppMessage({
-                title: '自定义标题分享123', // 分享标题
+                title: '友谊的小船要翻了，赶紧来拯救！', // 分享标题
                 link: current_url,
-                desc: "自定义描述abc",
-                imgUrl: 'http://7xi893.com2.z0.glb.clouddn.com/self_20160524170156184', // 分享图标
+                desc: "友谊的小船说翻就翻，大家都在救，我也要去！",
+                imgUrl: 'http://o84r72kbf.bkt.clouddn.com/boat/20160606161311723', // 分享图标
                 success: function () {
                 }
             });
             wx.onMenuShareTimeline({
-                title: '自定义标题分享123', // 分享标题
+                title: '友谊的小船要翻了，赶紧来拯救！', // 分享标题
                 link: current_url, // 分享链接
-                desc: "自定义描述abc",
-                imgUrl: 'http://7xi893.com2.z0.glb.clouddn.com/self_20160524170156184', // 分享图标
+                desc: "友谊的小船说翻就翻，大家都在救，我也要去！",
+                imgUrl: 'http://o84r72kbf.bkt.clouddn.com/boat/20160606161311723', // 分享图标
                 success: function () {
                     // 用户确认分享后执行的回调函数
                 }

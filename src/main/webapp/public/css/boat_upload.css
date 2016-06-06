@@ -416,17 +416,28 @@ button:focus {
   margin: 0;
 }
 
+.boat-icon{
+  position: absolute;
+  text-align: right;
+  right: 0;
+  z-index: 0;
+  width: 120px;
+
+}
+
+.boat-icon img{
+}
+
 .want-play{
   font-size: 16px;
   text-align: center;
   margin-top: 15px;
 }
 
-.want-play a{
+.want-play-span{
   color: white;
   text-decoration: underline;
 }
-
 .want-span-1{
   padding-left: 5px;
   color: rgba(255,255,255,0.5);

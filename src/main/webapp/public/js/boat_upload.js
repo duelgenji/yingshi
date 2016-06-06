@@ -100,8 +100,14 @@ function render(src, size, plan, cavansname) {
     image.src = src;
 }
 
+
+var isSaving = false;
+
 $('#save').on('click', function () {
-    //var title = $('#title').val();
+        //var title = $('#title').val();
+    $('#textModal').modal('show');
+    if(isSaving) return;
+    isSaving = true;
     var description = $('#description').val();
     var avatarUrl1 = $('#imgUrl').val().split(',')[1];
     var avatarUrl2 = $('#imgUrl1').val().split(',')[1];
@@ -115,15 +121,19 @@ $('#save').on('click', function () {
         url: commonUrl + 'wx/generateBoat',
         data: data,
         success: function (data) {
+            $('#textModal').modal('hide');
 
             if(data.success ==1){
                 self.location = "boat_show.html?boat="+data.boat;
+            }else{
+                $('#my-message').text("提交失败");
+                isSaving = false
             }
 
         },
         error: function () {
             $('#my-message').text("提交失败");
-            $('#textModal').modal('show');
+            isSaving = false
         }
     });
 });
