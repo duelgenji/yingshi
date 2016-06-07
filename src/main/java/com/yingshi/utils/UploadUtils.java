@@ -32,7 +32,7 @@ public class UploadUtils {
 
         String key = name +  DateFormatUtils.format(new Date(), "yyyyMMddHHmmssSSS");
 
-        String BASIC_URL = "http://o84r72kbf.bkt.clouddn.com/";
+        String BASIC_URL = "http://genji.zhixin.me/";
         String url = BASIC_URL + key;
 
         String BUCKET_NAME = "yingshi";
