@@ -401,7 +401,9 @@ button:focus {
 
 /*boat 中间文字部分*/
 .boat-content{
-  margin: -60px auto 10px;
+  font-family: "hukang", serif;
+  font-size: 16px;
+  margin: -40px auto 10px;
   text-align: center;
   word-spacing:8px; letter-spacing: 1px;
 }
@@ -480,4 +482,9 @@ button:focus {
     background: #7ECEF4;
     width: 1170px;
   }
+}
+
+@font-face {
+  font-family: 'hukang';  /*给自定义字体命名*/
+  src: url("../fonts/华康娃娃体.TTF") format('truetype');
 }
