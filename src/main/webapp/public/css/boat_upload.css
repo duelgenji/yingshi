@@ -8,6 +8,8 @@
 
 html, body {
   height: 100%;
+  background-color: #24D4EC;
+
 }
 
 button:focus {
@@ -16,9 +18,10 @@ button:focus {
 
 .container {
   padding: 0;
-  background-color: #7ECEF4;
   min-height: 736px;
   position: relative;
+  background: url("../img/boat/boat_bg.jpg") top no-repeat #24D4EC;
+  background-size: 100% 596px;
 }
 
 .wish {
@@ -83,11 +86,11 @@ button:focus {
 }
 
 .card-container-two-background{
-  background-color: #7ECEF4;
-  background: -webkit-linear-gradient(#C8EAFA,#A0DBF7,#7ECEF4,#7ECEF4); /* Safari 5.1 - 6.0 */
-  background: -o-linear-gradient(#C8EAFA,#A0DBF7,#7ECEF4,#7ECEF4); /* Opera 11.1 - 12.0 */
-  background: -moz-linear-gradient(#C8EAFA,#A0DBF7,#7ECEF4,#7ECEF4); /* Firefox 3.6 - 15 */
-  background: linear-gradient(#C8EAFA,#A0DBF7,#7ECEF4,#7ECEF4); /* 标准的语法 */
+  /*background-color: #7ECEF4;*/
+  /*background: -webkit-linear-gradient(#C8EAFA,#A0DBF7,#7ECEF4,#7ECEF4); *//* Safari 5.1 - 6.0 */
+  /*background: -o-linear-gradient(#C8EAFA,#A0DBF7,#7ECEF4,#7ECEF4); *//* Opera 11.1 - 12.0 */
+  /*background: -moz-linear-gradient(#C8EAFA,#A0DBF7,#7ECEF4,#7ECEF4); *//* Firefox 3.6 - 15 */
+  /*background: linear-gradient(#C8EAFA,#A0DBF7,#7ECEF4,#7ECEF4); *//* 标准的语法 */
 }
 
 .card-container-two {
@@ -123,8 +126,8 @@ button:focus {
   font-size: 50px;
 }
 .card-container-two .card-back {
-  position: relative;
-  top: -401px;
+  position: absolute;
+  top: 0;
   width: 320px;
   margin: 0 auto;
   pointer-events: none;
@@ -133,17 +136,17 @@ button:focus {
   width: 100%;
 }
 .card-container-two .add {
-  position: relative;
-  top: -217px;
-  left: 64px;
-  width: 64px;
+  position: absolute;
+  top: 32px;
+  left: 103px;
+  width: 60px;
   pointer-events: none;
 }
 .card-container-two .add-baby {
-  position: relative;
-  top: -215px;
-  left: 91px;
-  width: 64px;
+  position: absolute;
+  top: 32px;
+  left: 178px;
+  width: 60px;
   pointer-events: none;
 }
 
@@ -380,7 +383,8 @@ button:focus {
 }
 
 .boat-title{
-  background-color: #C8EAFA;
+  /*background-color: #C8EAFA;*/
+  height: 145px;
   z-index: 1;
   text-align: center;
   width: 100%;
@@ -401,11 +405,18 @@ button:focus {
 
 /*boat 中间文字部分*/
 .boat-content{
-  font-family: "hukang", serif;
-  font-size: 16px;
-  margin: -40px auto 10px;
+  font-family: "xdxwc", serif;
+  font-size: 18px;
+  margin: -100px auto 10px;
   text-align: center;
-  word-spacing:8px; letter-spacing: 1px;
+  word-spacing:8px; letter-spacing: 3px;
+  font-weight: bolder;
+}
+
+.boat-content-red{
+  font-size: 20px;
+  font-family: "hukang", serif;
+  color: #e9253c;
 }
 
 .button-content::before,.button-content::after{
@@ -431,14 +442,23 @@ button:focus {
 }
 
 .want-play{
+  position: absolute;
+  left: 0;
+  right: 0;
+  font-family: "xdxwc", serif;
   font-size: 16px;
   text-align: center;
-  margin-top: 15px;
+  bottom: 100px;
 }
 
 .want-play-span{
   color: white;
   text-decoration: underline;
+}
+
+.want-span{
+  color: #000000;
+  font-weight: 900;
 }
 .want-span-1{
   padding-left: 5px;
@@ -451,16 +471,15 @@ button:focus {
   color: rgba(255,255,255,1);
 }
 
-
-.ys-1v1{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-}
-.ys-1v1 img{
+.boat-bottom{
+  height: 138px;
   width: 100%;
+  background: url("../img/boat/boat_bottom.png") center;
+  background-size: cover;
+}
+.boat-bottom img{
+  min-width: 414px;
+  object-fit: cover;
 }
 
 @media (min-width: 768px){
@@ -487,4 +506,9 @@ button:focus {
 @font-face {
   font-family: 'hukang';  /*给自定义字体命名*/
   src: url("../fonts/华康娃娃体.TTF") format('truetype');
+}
+
+@font-face {
+  font-family: 'xdxwc';  /*给自定义字体命名*/
+  src: url("../fonts/新蒂下午茶基本版.ttf") format('truetype');
 }
