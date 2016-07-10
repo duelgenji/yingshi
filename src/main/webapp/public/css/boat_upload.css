@@ -8,7 +8,7 @@
 
 html, body {
   height: 100%;
-  background-color: #24D4EC;
+  background-color: #1B99A8;
 
 }
 
@@ -18,10 +18,10 @@ button:focus {
 
 .container {
   padding: 0;
-  min-height: 736px;
+  /*min-height: 736px;*/
   position: relative;
-  background: url("../img/boat/boat_bg.jpg") top no-repeat #24D4EC;
-  background-size: 100% 596px;
+  background: url("../img/boat/boat_bg.png") top no-repeat #24D4EC;
+  background-size: 100% 544px;
 }
 
 .wish {
@@ -95,14 +95,14 @@ button:focus {
 
 .card-container-two {
   position: relative;
-  height: 320px;
-  width: 320px;
+  /*height: 320px;*/
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
 
 }
 .card-container-two .btn-img-add {
-  position: relative;
+  position: absolute;
   top: 58px;
   left: 49px;
   width: 90px;
@@ -114,7 +114,7 @@ button:focus {
   font-size: 50px;
 }
 .card-container-two .btn-img-add1 {
-  position: relative;
+  position: absolute;
   top: -19px;
   left: 158px;
   width: 67px;
@@ -126,70 +126,56 @@ button:focus {
   font-size: 50px;
 }
 .card-container-two .card-back {
-  position: absolute;
+  position: relative;
   top: 0;
-  width: 320px;
+  width: 100%;
   margin: 0 auto;
   pointer-events: none;
 }
-.card-container-two .card-back img {
+
+.boat_gif_invisible{
+  position: relative;
   width: 100%;
 }
-.card-container-two .add {
+.render{
   position: absolute;
-  top: 32px;
-  left: 103px;
+  z-index: 100;
+  width: 100%;
+  top:0;
+  left: 0;
+  right: 0;
+}
+
+.original{
+  position: absolute;
+  z-index: 5;
+  top:0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.card-container-two .add {
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 60px;
   pointer-events: none;
 }
 .card-container-two .add-baby {
+  z-index: 99;
   position: absolute;
-  top: 32px;
-  left: 178px;
+  top: 0;
+  left: 0;
   width: 60px;
   pointer-events: none;
 }
 
-.card-container-three {
-  position: relative;
-  width: 320px;
-  height: 320px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-.card-container-three .btn-img-add {
-  position: relative;
-  top: 105px;
-  left: 86px;
-  width: 150px;
-  height: 60px;
-  overflow: hidden;
-  opacity: 0;
-}
-.card-container-three .btn-img-add input {
-  font-size: 50px;
-}
-.card-container-three .card-back {
-  position: relative;
-  margin: 0 auto;
-  top: -218px;
-  width: 300px;
-  pointer-events: none;
-}
-.card-container-three .card-back img {
-  width: 100%;
-}
-.card-container-three .add {
-  position: relative;
-  top: -53px;
-  left: 86px;
-  width: 150px;
-  pointer-events: none;
-}
 
 #plan {
-  position: relative;
-  top: -86px;
+  position: absolute;
+  top: 0;
   left: 64px;
   width: 64px;
   height: 64px;
@@ -202,7 +188,7 @@ button:focus {
 
 #plan0 {
   position: relative;
-  top: -20px;
+  top: 0;
   left: 67px;
   width: 90px;
   height: 90px;
@@ -214,7 +200,7 @@ button:focus {
 }
 
 #plan1 {
-  position: relative;
+  position: absolute;
   top: -150px;
   left: 158px;
   width: 67px;
@@ -226,21 +212,9 @@ button:focus {
   height: 100%;
 }
 
-#plan2 {
-  position: relative;
-  top: 42px;
-  left: 88px;
-  width: 140px;
-  height: 96px;
-  pointer-events: none;
-}
-#plan2 canvas {
-  width: 100%;
-  height: 100%;
-}
-
 .button-content {
-  width: 100%;
+  margin: 0 auto;
+  width: 80%;
 }
 .button-content .btn-img,.button-content .btn-content{
   width: 50%;
@@ -250,7 +224,7 @@ button:focus {
 }
 
 .btn-img img{
-  width: 120px;
+  width: 100%;
 }
 
 .btn-content-c{
@@ -259,18 +233,8 @@ button:focus {
   max-width: 125px;
 }
 
-.button-content button {
-  display: block;
-  width: 150px;
-  margin: 0 auto;
-  padding: 10px;
-  background-color: #f0b600;
-  border: none;
-  color: #4f3c00;
-  font-size: 16px;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
+.boat-rescue-list,.boat-refuse-list{
+  text-decoration: underline;
 }
 
 .center {
@@ -327,31 +291,6 @@ button:focus {
   background-color: #7ECEF4;
 }
 
-.close-modal {
-  position: relative;
-  left: 56%;
-  padding: 5px 10px;
-  border: none;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  color: #4f3c00;
-  background-color: #f0b600;
-  z-index: 300;
-}
-
-.upload-modal {
-  position: relative;
-  left: 58%;
-  padding: 5px 10px;
-  border: none;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  color: #4f3c00;
-  background-color: #f0b600;
-  z-index: 300;
-}
 
 .img-back-pregnant {
   pointer-events: none;
@@ -384,7 +323,7 @@ button:focus {
 
 .boat-title{
   /*background-color: #C8EAFA;*/
-  height: 145px;
+  height: 95px;
   z-index: 1;
   text-align: center;
   width: 100%;
@@ -395,7 +334,7 @@ button:focus {
 
 .boat-title img{
   max-width: 400px;
-  width: 75%;
+  height: 100%;
 }
 
 .photo-clip-area{
@@ -407,9 +346,9 @@ button:focus {
 .boat-content{
   font-family: "xdxwc", serif;
   font-size: 18px;
-  margin: -100px auto 10px;
+  margin: 0 auto 18px;
   text-align: center;
-  word-spacing:8px; letter-spacing: 3px;
+  letter-spacing: 2px;
   font-weight: bolder;
 }
 
@@ -417,6 +356,12 @@ button:focus {
   font-size: 20px;
   font-family: "hukang", serif;
   color: #e9253c;
+
+}
+
+.boat-haha{
+  width: 22px;
+  margin-top: -8px;
 }
 
 .button-content::before,.button-content::after{
@@ -441,6 +386,76 @@ button:focus {
 .boat-icon img{
 }
 
+
+.boat-list{
+  height: 380px;
+  width: 250px;
+  background: url('../img/boat/boat_list.png') top no-repeat rgba(0,0,0,0);
+  background-size:100%;
+  border:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+.boat-list-close{
+  position: absolute;
+  height: 50px;
+  width: 100%;
+}
+
+.boat-list-body{
+  padding-top: 55px;
+  text-align: center;
+  overflow:hidden;
+}
+
+.boat-list-title{
+  color: #1992a2;
+  font-family: "黑体" ,serif ;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.boat-list-number{
+  position: absolute;
+  margin: 0 auto;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  font-family: "黑体" ,serif ;
+  color: #ff935b;
+  font-weight: bold;
+}
+
+.boat-list-names{
+  height: 240px;
+  overflow-y: scroll;
+}
+
+.boat-list-name{
+  margin: 0 auto;
+  width: 85%;
+  color: #22d5ee;
+  font-size: 12px;
+  border-bottom: 1px dashed #999;
+  height: 26px;
+  line-height: 26px;
+}
+
+.boat-list-name-l{
+  float: left;
+  padding-left: 12px;
+}
+.boat-list-name-r{
+  float: right;
+  padding-right: 40px;
+}
+.boat-list-name::before{
+  display: inline-table;
+  content: ' ';
+  clear: both;
+}
+
 .want-play{
   position: absolute;
   left: 0;
@@ -457,22 +472,30 @@ button:focus {
 }
 
 .want-span{
-  color: #000000;
+  /*color: #000000;*/
   font-weight: 900;
 }
+
+.want-span span{
+  padding: 0;
+  margin: 0;
+}
+
 .want-span-1{
-  padding-left: 5px;
-  color: rgba(255,255,255,0.5);
+  padding-left:5px;
+  color: rgba(0,0,0,0.5);
 }
 .want-span-2{
-  color: rgba(255,255,255,0.8);
+  color: rgba(0,0,0,0.8);
 }
 .want-span-3{
-  color: rgba(255,255,255,1);
+  color: rgba(0,0,0,1);
 }
 
 .boat-bottom{
-  height: 138px;
+  position: relative;
+  bottom: 0;
+  height: 146px;
   width: 100%;
   background: url("../img/boat/boat_bottom.png") center;
   background-size: cover;
@@ -481,6 +504,7 @@ button:focus {
   min-width: 414px;
   object-fit: cover;
 }
+
 
 @media (min-width: 768px){
   .ys-1v1 {
@@ -505,10 +529,10 @@ button:focus {
 
 @font-face {
   font-family: 'hukang';  /*给自定义字体命名*/
-  src: url("../fonts/华康娃娃体.TTF") format('truetype');
+  src: url("../fonts/myhkwwt.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'xdxwc';  /*给自定义字体命名*/
-  src: url("../fonts/新蒂下午茶基本版.ttf") format('truetype');
+  src: url("../fonts/myxdxwc.ttf") format('truetype');
 }

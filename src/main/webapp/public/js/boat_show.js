@@ -14,6 +14,8 @@ if (id != null) {
     var id_ = decodeURIComponent(id);
 }
 
+var boatType = 1;
+
 $(document).ready(function () {
     var avatar = $("#avatar-content");
     var height = avatar.css("width");
@@ -29,11 +31,19 @@ $.get(commonUrl + "wx/retrieveBoat/" + id_, function (data) {
         $("#boat-icon").attr("src", data.userBoat.boat.imgUrl);
 
 
-        $("#boatTitle").html(data.userBoat.boat.boatTitle);
+        $("#boatTitle").html("—"+data.userBoat.boat.boatTitle+"—");
         $("#boatText").html(data.userBoat.boat.takeText);
-        $("#money").html(data.userBoat.boat.money);
-        $("#present").html(data.userBoat.boat.present);
+        $("#money").html("&lt;"+data.userBoat.boat.money+"&gt;");
+        $("#present").html("&lt;"+data.userBoat.boat.present+"&gt;");
         $("#result").html(data.userBoat.boat.result);
+
+        boatType = parseInt(data.userBoat.boat.rescueType)+1;
+
+        for(var i = 0 ;i<7;i++){
+            var type_html= boatType +"_"+(i+1);
+            $(".card-back").append('<img class="original boat-gif-rescue" src="http://yingshi.duelgenji.com/res/boat_gif_rescue_t'+type_html+'.png?imageMogr2/thumbnail/500x/strip">');
+        }
+
         wxShare(data);
     }
 });

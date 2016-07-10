@@ -28,21 +28,45 @@
             <div id="plan1">
                 <canvas id="myCanvas1"></canvas>
             </div>
-            <img id="upload-btn" class="add" src="public/img/boat/boat_avatar.png">
-            <img id="upload-baby" class="add-baby" src="public/img/boat/boat_avatar.png">
-            <div class="card-back"><img src="public/img/boat/boat_upload.png"></div>
+            <img id="upload-btn" class="add gifjs1" src="public/img/boat/boat_avatar_wo.png">
+            <img id="upload-baby" class="add-baby gifjs2" src="public/img/boat/boat_avatar_ta.png">
+            <div class="card-back">
+                <img class="boat_gif_invisible" src="public/img/boat/boat_gif_tm.png">
+                <img class="render" src="http://yingshi.duelgenji.com/res/boat_gif_default_1.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-default" src="http://yingshi.duelgenji.com/res/boat_gif_default_1.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-default" src="http://yingshi.duelgenji.com/res/boat_gif_default_2.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-default" src="http://yingshi.duelgenji.com/res/boat_gif_default_3.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-default" src="http://yingshi.duelgenji.com/res/boat_gif_default_4.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-default" src="http://yingshi.duelgenji.com/res/boat_gif_default_5.png?imageMogr2/thumbnail/500x/strip">
+
+
+                <img class="original boat-gif-refuse" src="http://yingshi.duelgenji.com/res/boat_gif_refuse_1.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-refuse" src="http://yingshi.duelgenji.com/res/boat_gif_refuse_2.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-refuse" src="http://yingshi.duelgenji.com/res/boat_gif_refuse_3.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-refuse" src="http://yingshi.duelgenji.com/res/boat_gif_refuse_4.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-refuse" src="http://yingshi.duelgenji.com/res/boat_gif_refuse_5.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-refuse" src="http://yingshi.duelgenji.com/res/boat_gif_refuse_6.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-refuse" src="http://yingshi.duelgenji.com/res/boat_gif_refuse_7.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-refuse" src="http://yingshi.duelgenji.com/res/boat_gif_refuse_8.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-refuse" src="http://yingshi.duelgenji.com/res/boat_gif_refuse_9.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-refuse" src="http://yingshi.duelgenji.com/res/boat_gif_refuse_10.png?imageMogr2/thumbnail/500x/strip">
+                <img class="original boat-gif-refuse" src="http://yingshi.duelgenji.com/res/boat_gif_refuse_11.png?imageMogr2/thumbnail/500x/strip">
+
+            </div>
         </div>
 
 
     </div>
 
-    <img id="boat-icon" class="boat-icon" src=""/>
+
+
 
     <div class="boat-content">
-        <p id="boatTitle"></p>
-        <p><span id="boatText"></span><span id="present"></span></p>
-        <p>OR发我<span id="money" style="color: #F57878"></span>的红包!</p>
-        <p id="result"></p>
+        <p id="boatTitle">&nbsp;</p>
+        <p><span id="boatText">&nbsp;</span><span id="present" class="boat-content-red">&nbsp;</span></p>
+        <p>OR发我<span id="money" class="boat-content-red"></span>的红包!</p>
+        <p id="result">&nbsp;</p>
+        <p>现在看你咯 <img class="boat-haha" src="public/img/boat/boat_haha.png"/></p>
     </div>
 
 
@@ -58,25 +82,64 @@
     <div class="button-content">
         <div class="btn-content">
             <div class="btn-content-c">
-                安迪、大S、尔康、M鹿M、超人等234987人帮忙拯救了友谊的小船
+                <span class="boat-rescue-list">安迪、大S、尔康</span>共23498人帮忙拯救了友谊小船
             </div>
         </div>
         <div class="btn-content">
             <div class="btn-content-c">
-                安迪、大S、尔康、M鹿M、超人等234987人帮忙拯救了友谊的小船
+                <span class="boat-refuse-list">紫薇、金锁、芈月</span>共83185人残忍掀翻了友谊小船
             </div>
         </div>
     </div>
 
-    <div id="want_play" class="want-play">
-        <span class="want-play-span">我也要玩</span><span class="want-span-1"> ></span><span class="want-span-2">></span><span class="want-span-3">></span>
-    </div>
 
-    <div class="ys-1v1">
-        <a href="http://m.ys1vs1.icoc.in/index.jsp"><img src="public/img/boat/ys1v1.png"/></a>
+    <div class="boat-bottom">
+        <div id="want_play" class="want-play">
+            <span class="want-span">
+                <span class="want-span-1">></span><span class="want-span-2">></span><span class="want-span-3">></span>
+            </span>
+            <span class="want-play-span">我也要玩</span>
+        </div>
     </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal my-model" id="rescueModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="width: 100%;height: 100%;margin: 0">
+        <div class="modal-content center boat-list">
+            <div class="boat-list-close"></div>
+            <div class="boat-list-body" style="">
+                <div class="boat-list-title">
+                    【拯救名单】
+                </div>
+                <div class="boat-list-names">
+                </div>
+                <div class="boat-list-number">
+                    - 共23498人拯救 -
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal my-model" id="refuseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="width: 100%;height: 100%;margin: 0">
+        <div class="modal-content center boat-list">
+            <div class="boat-list-close"></div>
+            <div class="boat-list-body" style="">
+                <div class="boat-list-title">
+                    【掀翻名单】
+                </div>
+                <div class="boat-list-names">
+                </div>
+                <div class="boat-list-number">
+                    - 共23498人掀翻 -
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="public/js/jquery.min.js"></script>
 <script src="public/js/bootstrap.min.js"></script>
@@ -86,20 +149,56 @@
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="public/js/wxconfig.js"></script>
 <script src="public/js/hashes.min.js"></script>
+<script src="public/js/gif.js"></script>
+
 <script>
 
 
     $(document).ready(function(){
+        upload_init();
+        var btnClickable = false;
+
+        var imgdefereds=[];
+        $('img').each(function(){
+            var dfd=$.Deferred();
+            $(this).bind('load',function(){
+                dfd.resolve();
+            }).bind('error',function(){
+                //图片加载错误，加入错误处理
+                // dfd.resolve();
+            })
+            if(this.complete) setTimeout(function(){
+                dfd.resolve();
+            },1000);
+            imgdefereds.push(dfd);
+        });
+        $.when.apply(null,imgdefereds).done(function(){
+            GIF_init();
+            btnClickable = true;
+        });
 
         var openId = GetQueryString("openId");
 
         $('#rescue').on('click', function () {
-            alert("执行拯救动画");
-            forward();
+            if(!btnClickable) return;
+            btnClickable = false;
+            var _thisImg = $(this).find("img");
+            _thisImg.attr("src","public/img/boat/btn_rescue_2.png");
+            setTimeout(function(){
+                _thisImg.attr("src","public/img/boat/btn_rescue.png");
+            },200);
+            GIF_rescue();
         });
+
         $('#refuse').on('click', function () {
-            alert("执行掀翻动画");
-            forward();
+            if(!btnClickable) return;
+            btnClickable = false;
+            var _thisImg = $(this).find("img");
+            _thisImg.attr("src","public/img/boat/btn_refuse_2.png");
+            setTimeout(function(){
+                _thisImg.attr("src","public/img/boat/btn_refuse.png");
+            },200);
+            GIF_refuse();
         });
 
         $("#want_play").on("click",function(){
@@ -113,6 +212,19 @@
                 self.location = "boat_enter.html";
             }
         }
+
+
+        /* 名单功能 start*/
+        $('.boat-rescue-list').on('click', function () {
+            $("#rescueModal").modal("show")
+        });
+        $('.boat-refuse-list').on('click', function () {
+            $("#refuseModal").modal("show")
+        });
+        $(".boat-list-close").on("click",function(){
+            $(".my-model").modal("hide")
+        });
+        /* 名单功能 end*/
     });
 
 

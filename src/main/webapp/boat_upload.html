@@ -10,7 +10,6 @@
 </head>
 <body>
 <div class="container">
-
     <div class="boat-title">
         <img src="public/img/boat/boat_title.png"/>
     </div>
@@ -30,9 +29,13 @@
             <div id="plan1">
                 <canvas id="myCanvas1"></canvas>
             </div>
-            <img id="upload-btn" class="add" src="public/img/boat/boat_avatar.png">
-            <img id="upload-baby" class="add-baby" src="public/img/boat/boat_avatar.png ">
-            <div class="card-back"><img src="public/img/boat/boat_upload.png"></div>
+            <img id="upload-btn" class="add gifjs1" src="public/img/boat/boat_avatar_wo.png">
+            <img id="upload-baby" class="add-baby gifjs2" src="public/img/boat/boat_avatar_ta.png">
+            <div class="card-back">
+                <img class="boat_gif_invisible" src="public/img/boat/boat_gif_tm.png">
+
+                <img class="render" src="http://yingshi.duelgenji.com/res/boat_gif_default_1.png?imageMogr2/thumbnail/500x/strip">
+            </div>
             <input type="hidden" id="imgUrl" style="opacity: 0;position: fixed;bottom: -100px">
             <input type="hidden" id="imgUrl1" style="opacity: 0;position: fixed;bottom: -100px">
         </div>
@@ -40,7 +43,7 @@
 
     </div>
 
-    <div class="button-content">
+    <div style="margin-top: 50px" class="button-content">
         <div class="btn-img" id="save">
             <img src="public/img/boat/btn_save.png">
         </div>
@@ -49,9 +52,14 @@
         </div>
     </div>
 
-    <div class="ys-1v1">
-        <a href="http://m.ys1vs1.icoc.in/index.jsp"><img src="public/img/boat/ys1v1.png"/></a>
+    <div style="height: 50px;width: 100%"></div>
+
+    <div class="boat-bottom">
+        <div id="want_play" class="want-play">
+            <span class="want-span">>>> </span><span class="want-play-span">我也要玩</span>
+        </div>
     </div>
+
 </div>
 
 <!-- Modal -->
@@ -61,9 +69,13 @@
             <div id="clipArea" class="center" style="height: 100%"></div>
             <img src="" fileName="" id="hit" style="display:none; z-index: 9">
         </div>
-        <div class="clip-button">
-            <button type="button" class="btn-lg close-modal" data-dismiss="modal">返回</button>
-            <button id="clipBtn" class="btn-lg upload-modal">上传</button>
+        <div class="clip-button button-content">
+            <div class="btn-img close-modal"  data-dismiss="modal">
+                <img src="public/img/boat/btn_return.png">
+            </div>
+            <div id="clipBtn" class="btn-img upload-modal">
+                <img src="public/img/boat/btn_upload.png">
+            </div>
         </div>
         <div class="clip-message">双指捏合或拖动图片以选取头像</div>
     </div>
@@ -76,9 +88,13 @@
             <div id="clipArea1" class="center" style="height: 100%"></div>
             <img src="" fileName="" id="hit1" style=" display:none; z-index: 9">
         </div>
-        <div class="clip-button">
-            <button type="button" class="btn-lg close-modal" data-dismiss="modal">返回</button>
-            <button id="clipBtn1" class="btn-lg upload-modal">上传</button>
+        <div class="clip-button button-content">
+            <div class="btn-img close-modal"  data-dismiss="modal">
+                <img src="public/img/boat/btn_return.png">
+            </div>
+            <div id="clipBtn1" class="btn-img upload-modal">
+                <img src="public/img/boat/btn_upload.png">
+            </div>
         </div>
         <div class="clip-message">双指捏合或拖动图片以选取头像</div>
     </div>
@@ -115,12 +131,13 @@
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="public/js/wxconfig.js"></script>
 <script src="public/js/hashes.min.js"></script>
+<script src="public/js/gif.js"></script>
 <script>
 
 
     $(document).ready(function(){
         var current_url = location.href;
-
+        upload_init();
         $.ajax({
             url:commonUrl+"wx/getTicket",
             type:"GET",
@@ -143,7 +160,6 @@
             }
         });
         wx.ready(function () {
-
             wx.onMenuShareAppMessage({
                 title: '友谊的小船要翻了，赶紧来拯救！', // 分享标题
                 link: current_url,
@@ -162,8 +178,6 @@
                 }
             });
         });
-
-
     });
 
 
