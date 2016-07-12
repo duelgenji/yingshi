@@ -41,7 +41,7 @@ $.get(commonUrl + "wx/retrieveBoat/" + id_, function (data) {
 
         for(var i = 0 ;i<7;i++){
             var type_html= boatType +"_"+(i+1);
-            $(".card-back").append('<img class="original boat-gif-rescue" src="http://yingshi.duelgenji.com/res/boat_gif_rescue_t'+type_html+'.png?imageMogr2/thumbnail/500x/strip">');
+            $(".card-back").append('<img class="original boat-gif-rescue" src="http://yingshi.duelgenji.com/res/boat_gif_rescue_t'+type_html+'.png?imageMogr2/thumbnail/500x">');
         }
 
         wxShare(data);
