@@ -56,8 +56,12 @@
 
     <div class="boat-bottom">
         <div id="want_play" class="want-play">
-            <span class="want-span">>>> </span><span class="want-play-span">我也要玩</span>
+            <span class="want-span">
+                <span class="want-span-1">></span><span class="want-span-2">></span><span class="want-span-3">></span>
+            </span>
+            <span class="want-play-span">我也要玩</span>
         </div>
+        <div class="boat-bottom-link"></div>
     </div>
 
 </div>
@@ -138,6 +142,12 @@
     $(document).ready(function(){
         var current_url = location.href;
         upload_init();
+
+        //底部链接
+        $(".boat-bottom-link").on("click",function(){
+            self.location="http://m.ys1vs1.icoc.me/index.jsp";
+        });
+
         $.ajax({
             url:commonUrl+"wx/getTicket",
             type:"GET",
@@ -178,6 +188,8 @@
                 }
             });
         });
+
+
     });
 
 

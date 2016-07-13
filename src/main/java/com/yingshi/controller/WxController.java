@@ -1,23 +1,23 @@
 package com.yingshi.controller;
 
 import com.yingshi.entity.Boat;
+import com.yingshi.entity.SystemParam;
 import com.yingshi.entity.UserBoat;
 import com.yingshi.entity.WxUser;
 import com.yingshi.repository.BoatRepository;
+import com.yingshi.repository.SystemParamRepository;
 import com.yingshi.repository.UserBoatRepository;
 import com.yingshi.service.WxService;
 import com.yingshi.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sun.misc.BASE64Decoder;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -36,6 +36,9 @@ public class WxController {
 
     @Autowired
     BoatRepository boatRepository;
+
+    @Autowired
+    SystemParamRepository systemParamRepository;
 
     @Transactional
     @RequestMapping("getAccessToken")
@@ -106,6 +109,31 @@ public class WxController {
             res.put("userBoat", userBoat);
         }
 
+        res.put("success", 1);
+        return res;
+    }
+
+    @RequestMapping(value = "systemParam",method = RequestMethod.GET)
+    public Map<String ,Object> systemParam(){
+        Map<String, Object> res = new HashMap<>();
+        List<SystemParam> systemParamList = systemParamRepository.findAll();
+
+        for(SystemParam sp:systemParamList){
+            res.put(sp.getName(), sp.getValue());
+        }
+        res.put("success", 1);
+        return res;
+    }
+
+    @RequestMapping(value = "updateSystemParam/{name}",method = RequestMethod.GET)
+    public Map<String ,Object> updateSystemParam(@PathVariable String name){
+        Map<String, Object> res = new HashMap<>();
+        SystemParam systemParam = systemParamRepository.findByName(name);
+
+        if(systemParam!=null){
+            systemParam.setValue(systemParam.getValue()+1);
+            systemParamRepository.save(systemParam);
+        }
         res.put("success", 1);
         return res;
     }

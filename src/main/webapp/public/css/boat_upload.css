@@ -505,26 +505,13 @@ button:focus {
   object-fit: cover;
 }
 
-
-@media (min-width: 768px){
-  .ys-1v1 {
-    background: #7ECEF4;
-    width: 750px;
-  }
-}
-
-@media (min-width: 992px){
-  .ys-1v1 {
-    background: #7ECEF4;
-    width: 970px;
-  }
-}
-
-@media (min-width: 1200px){
-  .ys-1v1 {
-    background: #7ECEF4;
-    width: 1170px;
-  }
+.boat-bottom-link{
+  position: absolute;
+  height: 60px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 @font-face {
