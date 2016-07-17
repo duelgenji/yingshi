@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="public/css/boat_upload.css">
 </head>
 <body>
+<div class="boat-loading">
+    <div style="height: 95px;width: 100%;background-color: #f0f0f0"></div>
+    <img style="width: 100%" src="public/img/boat/boat_loading_bg.png">
+    <div style="margin: 0 auto;width:100%;text-align: center;position: absolute;top: 220px;">
+        <img id="boat-loading-img" data-index="1" style="width: 60px;" src="public/img/boat/boat_loading_1.png">
+        <div style="margin-top: 15px;">
+            <img style="width: 60%;" src="public/img/boat/boat_loading.png">
+        </div>
+    </div>
+</div>
 <div class="container">
 
     <div class="boat-title">
@@ -110,6 +120,10 @@
 
 </div>
 
+
+
+
+
 <!-- Modal -->
 <div class="modal my-model" id="rescueModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document" style="width: 100%;height: 100%;margin: 0">
@@ -185,6 +199,26 @@
 
 
     $(document).ready(function(){
+
+        var t = setInterval(function(){
+
+            var index = $("#boat-loading-img").data("index");
+
+            if(index==1){
+                $("#boat-loading-img").attr("src","public/img/boat/boat_loading_2.png").data("index",2);
+            }
+            if(index==2){
+                $("#boat-loading-img").attr("src","public/img/boat/boat_loading_3.png").data("index",3);
+            }
+            if(index==3){
+                $("#boat-loading-img").attr("src","public/img/boat/boat_loading_1.png").data("index",1);
+            }
+
+
+        },500);
+
+
+
         var rescueClickable = false;
         var refuseClickable = false;
 
@@ -203,6 +237,8 @@
             imgdefereds.push(dfd);
         });
         $.when.apply(null,imgdefereds).done(function(){
+            $(".boat-loading").remove();
+            clearInterval(t);
             GIF_init();
             rescueClickable = true;
             refuseClickable = true;

@@ -23,8 +23,8 @@ $("#clipArea").photoClip({
 });
 
 $("#clipArea1").photoClip({
-    width: 188,
-    height: 188,
+    width: 170,
+    height: 170,
     file: "#file1",
     view: "#hit1",
     ok: "#clipBtn1",
