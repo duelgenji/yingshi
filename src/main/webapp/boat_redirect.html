@@ -13,12 +13,16 @@
 
 
     $(document).ready(function(){
+
         var code = GetQueryString("code");
+        var boat = GetQueryString("boat");
 
-        $.get(commonUrl+"wx/wxRedirect?code="+code, function (data) {
+        var url = "wx/wxRedirect?code="+code;
 
+        if(boat) url +="&boat="+boat;
+
+        $.get(commonUrl+url, function (data) {
             self.location = data.redirect_url;
-
         });
 
     });

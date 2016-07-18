@@ -8,12 +8,15 @@
 
 </body>
 <script src="public/js/jquery.min.js"></script>
+<script src="public/js/common.js"></script>
 <script>
 
 
     $(document).ready(function(){
 
         var redirect_url = "http://www.zhixin.me/ysweb/boat_redirect.html";
+
+        redirect_url = encodeURIComponent(redirect_url);
 
         setTimeout(function(){
             self.location="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa572b73e050e1bb4&redirect_uri="+redirect_url+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"

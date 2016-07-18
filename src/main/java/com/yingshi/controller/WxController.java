@@ -1,12 +1,7 @@
 package com.yingshi.controller;
 
-import com.yingshi.entity.Boat;
-import com.yingshi.entity.SystemParam;
-import com.yingshi.entity.UserBoat;
-import com.yingshi.entity.WxUser;
-import com.yingshi.repository.BoatRepository;
-import com.yingshi.repository.SystemParamRepository;
-import com.yingshi.repository.UserBoatRepository;
+import com.yingshi.entity.*;
+import com.yingshi.repository.*;
 import com.yingshi.service.WxService;
 import com.yingshi.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +27,13 @@ public class WxController {
     WxService wxService;
 
     @Autowired
+    WxUserRepository wxUserRepository;
+
+    @Autowired
     UserBoatRepository userBoatRepository;
+
+    @Autowired
+    UserBoatInteractionRepository userBoatInteractionRepository;
 
     @Autowired
     BoatRepository boatRepository;
@@ -100,19 +101,34 @@ public class WxController {
     }
 
 
+    /**
+     * 获取用户小船信息
+     */
     @RequestMapping("retrieveBoat/{boatId}")
     public Map<String ,Object> retrieveBoat(@PathVariable String boatId){
         Map<String, Object> res = new HashMap<>();
         UserBoat userBoat = userBoatRepository.findByGuid(boatId);
 
-        if(userBoat!=null){
-            res.put("userBoat", userBoat);
+        if(userBoat==null){
+            res.put("success", 0);
+            res.put("message", "boat null");
+            return res;
         }
 
+        res.put("rescue_number", userBoatInteractionRepository.countByGuidAndType(boatId,0));
+        res.put("refuse_number", userBoatInteractionRepository.countByGuidAndType(boatId,1));
+
+
+
+
+        res.put("userBoat", userBoat);
         res.put("success", 1);
         return res;
     }
 
+    /**
+     * 获取参数 全局拯救人数 掀翻人数
+     */
     @RequestMapping(value = "systemParam",method = RequestMethod.GET)
     public Map<String ,Object> systemParam(){
         Map<String, Object> res = new HashMap<>();
@@ -125,6 +141,9 @@ public class WxController {
         return res;
     }
 
+    /**
+     * 更新参数 全局拯救人数 掀翻人数
+     */
     @RequestMapping(value = "updateSystemParam/{name}",method = RequestMethod.GET)
     public Map<String ,Object> updateSystemParam(@PathVariable String name){
         Map<String, Object> res = new HashMap<>();
@@ -137,6 +156,49 @@ public class WxController {
         res.put("success", 1);
         return res;
     }
+
+
+    /**
+     * 小船互动
+     */
+    @RequestMapping("boatInteraction")
+    public Map<String ,Object> boatInteraction(@RequestParam String boatId,
+                                            @RequestParam String openId,
+                                            @RequestParam int type){
+        Map<String, Object> res = new HashMap<>();
+        UserBoat userBoat = userBoatRepository.findByGuid(boatId);
+
+        if(userBoat==null){
+            res.put("success", 0);
+            res.put("message", "boat null");
+            return res;
+        }
+
+        WxUser wxUser = wxUserRepository.findByOpenId(openId);
+
+        if(wxUser==null){
+            res.put("success", 0);
+            res.put("message", "user null");
+            return res;
+        }
+
+        UserBoatInteraction ubi = userBoatInteractionRepository.findByGuidAndOpenId(boatId,openId);
+
+        if(ubi==null){
+            ubi = new UserBoatInteraction();
+            ubi.setGuid(boatId);
+            ubi.setOpenId(openId);
+            ubi.setHeadimgurl(wxUser.getHeadimgurl());
+            ubi.setNickname(wxUser.getNickname());
+            ubi.setType(type);
+        }
+
+        userBoatInteractionRepository.save(ubi);
+
+        res.put("success", 1);
+        return res;
+    }
+
 
     /**
      * 导入boat
@@ -183,14 +245,21 @@ public class WxController {
     @RequestMapping("wxRedirect")
     public Map<String ,Object>  wxRedirect(
             @RequestParam String code,
+            @RequestParam(required = false) String boat,
             HttpServletResponse response){
 
         WxUser wxUser = wxService.getUserInfo(wxService.getSNSAccessToken(code));
         //        response.sendRedirect("http://www.zhixin.me/boat_upload.html?openId="+wxUser.getOpenId());
 
+        String redirect_url = "http://www.zhixin.me/ysweb/boat_example.html?openId="+wxUser.getOpenId();
+
+        if(boat!=null && !boat.equals("")){
+            redirect_url = "http://www.zhixin.me/ysweb/boat_show.html?openId="+wxUser.getOpenId()+"&boat="+boat;
+        }
+
         Map<String, Object> res = new HashMap<>();
         res.put("success", 1);
-        res.put("redirect_url", "http://www.zhixin.me/ysweb/boat_example.html?openId="+wxUser.getOpenId());
+        res.put("redirect_url", redirect_url);
         return res;
 
     }

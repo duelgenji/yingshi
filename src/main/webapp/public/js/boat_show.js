@@ -48,14 +48,19 @@ $.get(commonUrl + "wx/retrieveBoat/" + id_, function (data) {
     }
 });
 
-$("#edit").on("touchstart", function () {
-    location.href = "card-index.html";
-});
+function boatAction(){
+    var json = {};
 
-$("#share").on("touchstart", function () {
-    $('#myModal').modal('show');
-});
 
+    $.ajax({
+        url:commonUrl+"wx/boatAction",
+        data:json,
+        type:"post",
+        success:function(data){
+
+        }
+    });
+}
 
 function wxShare(data){
     var current_url = location.href;
