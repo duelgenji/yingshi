@@ -186,6 +186,7 @@
             $('#rescue').find("img").attr("src","public/img/boat/btn_rescue_disable.png");
             $('#refuse').find("img").attr("src","public/img/boat/btn_refuse_disable.png");
             GIF_rescue();
+            boatAction(0);
         });
 
         $('#refuse').on('click', function () {
@@ -194,6 +195,7 @@
             $('#rescue').find("img").attr("src","public/img/boat/btn_rescue_disable.png");
             $('#refuse').find("img").attr("src","public/img/boat/btn_refuse_disable.png");
             GIF_refuse();
+            boatAction(1);
         });
 
         $("#want_play").on("click",function(){

@@ -10,6 +10,7 @@ function GetQueryString(name) {
 }
 
 var id = GetQueryString("boat");
+
 if (id != null) {
     var id_ = decodeURIComponent(id);
 }
@@ -48,12 +49,14 @@ $.get(commonUrl + "wx/retrieveBoat/" + id_, function (data) {
     }
 });
 
-function boatAction(){
+function boatAction(type){
     var json = {};
-
+    json.type = type;
+    json.boatId =  GetQueryString("boat");
+    json.openId = GetQueryString("openId");
 
     $.ajax({
-        url:commonUrl+"wx/boatAction",
+        url:commonUrl+"wx/boatInteraction",
         data:json,
         type:"post",
         success:function(data){
