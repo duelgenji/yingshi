@@ -89,7 +89,7 @@ function wxShare(data){
     wx.ready(function () {
         wx.onMenuShareAppMessage({
             title: '友谊的小船要翻了，赶紧来拯救！', // 分享标题
-            link: current_url,
+            link: "http://www.zhixin.me/ysweb/boat_enter.html?boat="+id,
             desc: "友谊的小船说翻就翻，大家都在救，我也要去！",
             imgUrl: data.userBoat.avatar2, // 分享图标
             success: function () {
@@ -97,7 +97,7 @@ function wxShare(data){
         });
         wx.onMenuShareTimeline({
             title: '友谊的小船要翻了，赶紧来拯救！', // 分享标题
-            link: current_url, // 分享链接
+            link: "http://www.zhixin.me/ysweb/boat_enter.html?boat="+id,
             desc: "友谊的小船说翻就翻，大家都在救，我也要去！",
             imgUrl: data.userBoat.avatar2, // 分享图标
             success: function () {
