@@ -5,6 +5,9 @@ import com.yingshi.repository.*;
 import com.yingshi.service.WxService;
 import com.yingshi.utils.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import sun.misc.BASE64Decoder;
@@ -105,7 +108,8 @@ public class WxController {
      * 获取用户小船信息
      */
     @RequestMapping("retrieveBoat/{boatId}")
-    public Map<String ,Object> retrieveBoat(@PathVariable String boatId){
+    public Map<String ,Object> retrieveBoat(@PathVariable String boatId,
+                                            @PageableDefault(size = 15, sort = { "id" }, direction = Sort.Direction.DESC)Pageable pageable){
         Map<String, Object> res = new HashMap<>();
         UserBoat userBoat = userBoatRepository.findByGuid(boatId);
 
@@ -118,7 +122,8 @@ public class WxController {
         res.put("rescue_number", userBoatInteractionRepository.countByGuidAndType(boatId,0));
         res.put("refuse_number", userBoatInteractionRepository.countByGuidAndType(boatId,1));
 
-
+        res.put("rescueList", userBoatInteractionRepository.findByGuidAndType(boatId,0,pageable));
+        res.put("refuseList", userBoatInteractionRepository.findByGuidAndType(boatId,1,pageable));
 
 
         res.put("userBoat", userBoat);
@@ -179,6 +184,11 @@ public class WxController {
         if(wxUser==null){
             res.put("success", 0);
             res.put("message", "user null");
+            return res;
+        }
+
+        if(userBoat.getOpenId().equals(openId)){
+            res.put("success", 1);
             return res;
         }
 

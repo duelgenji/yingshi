@@ -2,9 +2,12 @@ package com.yingshi.entity;
 
 import com.wonders.xlab.framework.entity.AbstractBaseEntity;
 
+import javax.persistence.Entity;
+
 /**
  * Created by knight on 16/6/3.
  */
+@Entity
 public class UserBoatInteraction extends AbstractBaseEntity<Long> {
 
     /**
