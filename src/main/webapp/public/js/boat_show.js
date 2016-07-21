@@ -37,7 +37,9 @@ $.get(commonUrl + "wx/retrieveBoat/" + id_, function (data) {
         $("#money").html("&lt;"+data.userBoat.boat.money+"&gt;");
         $("#present").html("&lt;"+data.userBoat.boat.present+"&gt;");
         $("#result").html(data.userBoat.boat.result);
-
+        $(".rescue_number").html(data.rescue_number);
+        $(".refuse_number").html(data.refuse_number);
+        nameList(data);
         boatType = parseInt(data.userBoat.boat.rescueType)+1;
 
         for(var i = 0 ;i<7;i++){
@@ -48,6 +50,48 @@ $.get(commonUrl + "wx/retrieveBoat/" + id_, function (data) {
         wxShare(data);
     }
 });
+
+function nameList(data){
+    var rescueList = data.rescueList;
+    var html = "";
+    var i;
+    if(rescueList.length>0){
+        for(i=0;i<rescueList.length &&  i<3;i++){
+            $(".boat-rescue-list").append(rescueList[i].nickname);
+            if(i<rescueList.length-1){
+                $(".boat-rescue-list").append("、");
+            }
+        }
+
+        for(i=0;i<rescueList.length;i++){
+            html = '<div class="boat-list-name">' +
+            '<div class="boat-list-name-l">'+(i+1)+'.</div>' +
+            '<div class="boat-list-name-r">'+rescueList[i].nickname+'</div>' +
+            '</div>';
+            $(".boat-rescue-names").append(html);
+        }
+    }
+
+    var refuseList = data.refuseList;
+
+    if(data.refuseList.length>0){
+        for(i=0;i<refuseList.length && i<3;i++){
+            $(".boat-refuse-list").append(refuseList[i].nickname);
+            if(i<refuseList.length-1){
+                $(".boat-refuse-list").append("、");
+            }
+        }
+        for(i=0;i<refuseList.length;i++){
+            html = '<div class="boat-list-name">' +
+            '<div class="boat-list-name-l">'+(i+1)+'.</div>' +
+            '<div class="boat-list-name-r">'+refuseList[i].nickname+'</div>' +
+            '</div>';
+            $(".boat-refuse-names").append(html);
+        }
+    }
+
+
+}
 
 function boatAction(type){
     var json = {};

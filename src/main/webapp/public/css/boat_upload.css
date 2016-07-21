@@ -301,7 +301,7 @@ button:focus {
 
 .clip-button {
   position: absolute;
-  bottom: 0;
+  bottom: 82px;
   width: 100%;
   height: 10%;
   background-color: #7ECEF4;
