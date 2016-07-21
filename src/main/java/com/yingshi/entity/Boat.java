@@ -29,11 +29,6 @@ public class Boat extends AbstractPersistable<Long> {
     private String present;
 
     /**
-     * 对方看到的文字 送你XXXX
-     */
-    private String sendText;
-
-    /**
      * 自己看到的文字 送我XXXX
      */
     private String takeText;
@@ -43,10 +38,6 @@ public class Boat extends AbstractPersistable<Long> {
      */
     private int rescueType;
 
-    /**
-     * 图标 图章
-     */
-    private String imgUrl;
 
     public int getBoatNo() {
         return boatNo;
@@ -88,14 +79,6 @@ public class Boat extends AbstractPersistable<Long> {
         this.present = present;
     }
 
-    public String getSendText() {
-        return sendText;
-    }
-
-    public void setSendText(String sendText) {
-        this.sendText = sendText;
-    }
-
     public String getTakeText() {
         return takeText;
     }
@@ -110,13 +93,5 @@ public class Boat extends AbstractPersistable<Long> {
 
     public void setRescueType(int rescueType) {
         this.rescueType = rescueType;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
     }
 }

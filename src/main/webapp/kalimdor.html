@@ -31,14 +31,11 @@
 
                 var json = {};
                 rescueType = 0;
-                money = parseFloat(row[4]);
+                money = parseFloat(row[2]);
                 json.boatNo = i + 1;
-                json.boatTitle = row[0];
-                json.takeText = row[1];
-                json.present = row[2];
-                json.result = row[3];
-                json.money = row[4];
-                json.sendText = row[5];
+                json.takeText = row[0];
+                json.present = row[1];
+                json.money = row[2];
 
                 if(money>=3 && money < 6){
                     rescueType = 1;
@@ -51,13 +48,10 @@
 
                 json.rescueType = rescueType;
 
-
-                json.imgUrl = "http://o84r72kbf.bkt.clouddn.com/icon/N"+pad(i+1,3)+".gif";
-
                 console.log(json);
 
                 $.ajax({
-                    url: "http://172.16.76.19:8080/wx/importBoat",
+                    url: "http://localhost:8080/wx/importBoat",
                     type: "post",
                     data:json,
                     dataType: "json",

@@ -216,13 +216,9 @@ public class WxController {
     @RequestMapping("importBoat")
     public Map<String ,Object> importBoat(@RequestParam int boatNo,
                                           @RequestParam int rescueType,
-                                          @RequestParam String boatTitle,
-                                          @RequestParam String result,
                                           @RequestParam double money,
                                           @RequestParam String present,
-                                          @RequestParam String sendText,
-                                          @RequestParam String takeText,
-                                          @RequestParam String imgUrl){
+                                          @RequestParam String takeText){
         Map<String, Object> res = new HashMap<>();
 
         Boat boat = boatRepository.findByBoatNo(boatNo);
@@ -231,16 +227,13 @@ public class WxController {
             boat = new Boat();
             boat.setRescueType(rescueType);
             boat.setBoatNo(boatNo);
-            boat.setBoatTitle(boatTitle);
-            boat.setResult(result);
+            boat.setBoatTitle("友谊地久天长");
+            boat.setResult("让友谊的小船重新扬帆起航");
             boat.setMoney(money);
             boat.setPresent(present);
-            boat.setSendText(sendText);
             boat.setTakeText(takeText);
-            boat.setImgUrl(imgUrl);
 
             boatRepository.save(boat);
-
         }
 
         res.put("success", 1);
