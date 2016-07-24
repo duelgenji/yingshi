@@ -117,14 +117,19 @@
 <!-- Modal -->
 <div class="modal my-model" id="textModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document" style="width: 100%;height: 100%;margin: 0">
-        <div class="modal-content center" style="height: 170px;width: 250px;background-color: #C8EAFA;border:none;">
+        <div class="modal-content center" style="height: 180px;width: 250px;background-color: #FACD89;border:none;">
             <div class="my-modal-body" id="my-message"
-                 style="padding: 30px 10px;text-align: center;font-size: 18px;height: 110px;color: black">
-                提交中,请稍后...
+                 style="padding: 15px 0;text-align: center;font-size: 18px;color: black">
+                <img style="width: 50%;" src="public/img/boat/boat_upload_modal_text.png"/>
+            </div>
+            <div style="height: 60px;">
+            </div>
+            <div style="position: absolute;top: 0;pointer-events:none;">
+                <img style="width: 100%;" src="public/img/boat/boat_upload_modal_gif.gif"/>
             </div>
             <div class="my-modal-footer">
                 <button type="button" class="btn btn-default"
-                        style="display: block; margin: 0 99px;border: none;background-color: #7ECEF4;color:#4f3c00 "
+                        style="display: block; margin: 0 99px;background-color: #FACD89;color:#000000;border: 1px solid #000000; "
                         data-dismiss="modal">确定
                 </button>
             </div>
@@ -138,7 +143,8 @@
 <script src="public/js/sonic.js"></script>
 <script src="public/js/hammer.js"></script>
 <script src="public/js/iscroll-zoom.js"></script>
-<script src="public/js/jquery.photoClip.js"></script>
+<script src="public/js/lrz.all.bundle.js"></script>
+<script src="public/js/jquery.photoClip19.js"></script>
 <script src="public/js/common.js"></script>
 <script src="public/js/boat_upload.js"></script>
 
@@ -152,6 +158,7 @@
     $(document).ready(function(){
         var current_url = location.href;
         upload_init();
+        $('#textModal').modal('show');
 
         //底部链接
         $(".boat-bottom-link").on("click",function(){

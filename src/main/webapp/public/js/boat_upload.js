@@ -9,31 +9,51 @@ function GetQueryString(name) {
 }
 
 // 初始化裁剪窗口
-$("#clipArea").photoClip({
-    width: 170,
-    height: 170,
-    file: "#file",
-    view: "#hit",
-    ok: "#clipBtn",
-    outputType: "png",
-    clipFinish: function (dataURL) {
+var clipArea = new bjj.PhotoClip("#clipArea", {
+    size: [170, 170], // 截取框的宽和高组成的数组。默认值为[260,260]
+    outputSize: [0, 0], // 输出图像的宽和高组成的数组。默认值为[0,0]，表示输出图像原始大小
+    outputType: "png", // 指定输出图片的类型，可选 "jpg" 和 "png" 两种种类型，默认为 "jpg"
+    file: "#file", // 上传图片的<input type="file">控件的选择器或者DOM对象
+    source: "", // 需要裁剪图片的url地址。该参数表示当前立即开始裁剪的图片，不需要使用file控件获取。注意，该参数不支持跨域图片。
+    view: "#hit", // 显示截取后图像的容器的选择器或者DOM对象
+    ok: "#clipBtn", // 确认截图按钮的选择器或者DOM对象
+    loadStart: function(file) {}, // 开始加载的回调函数。this指向 fileReader 对象，并将正在加载的 file 对象作为参数传入
+    loadComplete: function(src) {}, // 加载完成的回调函数。this指向图片对象，并将图片地址作为参数传入
+    loadError: function(event) {}, // 加载失败的回调函数。this指向 fileReader 对象，并将错误事件的 event 对象作为参数传入
+    clipFinish: function(dataURL) {
         $('#hit').attr('src', dataURL);
         saveImageInfo($('#hit'), $('#upload-btn'), $('#myModal'), 90, $("#imgUrl"), $('#plan'), "myCanvas");
-    }
+
+    } // 裁剪完成的回调函数。this指向图片对象，会将裁剪出的图像数据DataURL作为参数传入
 });
 
-$("#clipArea1").photoClip({
-    width: 170,
-    height: 170,
-    file: "#file1",
-    view: "#hit1",
-    ok: "#clipBtn1",
-    outputType: "png",
-    clipFinish: function (dataURL) {
+var clipArea1 = new bjj.PhotoClip("#clipArea1", {
+    size: [170, 170], // 截取框的宽和高组成的数组。默认值为[260,260]
+    outputSize: [0, 0], // 输出图像的宽和高组成的数组。默认值为[0,0]，表示输出图像原始大小
+    outputType: "png", // 指定输出图片的类型，可选 "jpg" 和 "png" 两种种类型，默认为 "jpg"
+    file: "#file1", // 上传图片的<input type="file">控件的选择器或者DOM对象
+    source: "", // 需要裁剪图片的url地址。该参数表示当前立即开始裁剪的图片，不需要使用file控件获取。注意，该参数不支持跨域图片。
+    view: "#hit1", // 显示截取后图像的容器的选择器或者DOM对象
+    ok: "#clipBtn1", // 确认截图按钮的选择器或者DOM对象
+    clipFinish: function(dataURL) {
         $('#hit1').attr('src', dataURL);
-        saveImageInfo($('#hit1'), $('#upload-baby'), $('#myModal1'), 67, $("#imgUrl1"), $('#plan1'), "myCanvas1");
-    }
+        saveImageInfo($('#hit1'), $('#upload-baby'), $('#myModal1'), 90, $("#imgUrl1"), $('#plan1'), "myCanvas1");
+
+    } // 裁剪完成的回调函数。this指向图片对象，会将裁剪出的图像数据DataURL作为参数传入
 });
+
+//$("#clipArea1").photoClip({
+//    width: 170,
+//    height: 170,
+//    file: "#file1",
+//    view: "#hit1",
+//    ok: "#clipBtn1",
+//    outputType: "png",
+//    clipFinish: function (dataURL) {
+//        $('#hit1').attr('src', dataURL);
+//        saveImageInfo($('#hit1'), $('#upload-baby'), $('#myModal1'), 67, $("#imgUrl1"), $('#plan1'), "myCanvas1");
+//    }
+//});
 
 function clip() {
     $('#myModal').modal('show');
