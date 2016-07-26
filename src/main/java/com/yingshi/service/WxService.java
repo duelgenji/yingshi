@@ -99,7 +99,7 @@ public class WxService {
         String nickname,province,city,country,headimgurl;
         int sex ;
 
-        Map<String, String> res = WxUtils.request(WxUtils.RequestType.GET,WxUtils.WX_SNS_URL+"userinfo?access_token="+wxUser.getAccessToken()+"&openid="+wxUser.getOpenId()+"&lang=zh_CN ");
+        Map<String, String> res = WxUtils.request(WxUtils.RequestType.GET,WxUtils.WX_SNS_URL+"userinfo?access_token="+wxUser.getAccessToken()+"&openid="+wxUser.getOpenId()+"&lang=zh_CN");
 
         sex = Integer.parseInt(res.get("sex"));
         nickname = res.get("nickname");
