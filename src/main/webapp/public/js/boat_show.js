@@ -44,7 +44,7 @@ $.get(commonUrl + "wx/retrieveBoat/" + id_, function (data) {
 
         for(var i = 0 ;i<7;i++){
             var type_html= boatType +"_"+(i+1);
-            $(".card-back").append('<img class="original boat-gif-rescue" src="http://yingshi.duelgenji.com/res/boat_gif_rescue_t'+type_html+'.png?imageMogr2/thumbnail/500x">');
+            $(".card-back").append('<img class="original boat-gif-rescue" src="http://res.ys-1v1.com/res/boat_gif_rescue_t'+type_html+'.png?imageMogr2/thumbnail/500x">');
         }
 
         wxShare(data);
@@ -136,7 +136,7 @@ function wxShare(data){
     wx.ready(function () {
         wx.onMenuShareAppMessage({
             title: '友谊的小船要翻了，赶紧来拯救！', // 分享标题
-            link: "http://www.zhixin.me/ysweb/boat_enter.html?boat="+id,
+            link: "http://www.ys-1v1.com/ysweb/boat_enter.html?boat="+id,
             desc: "友谊的小船说翻就翻，大家都在救，我也要去！",
             imgUrl: data.userBoat.avatar2, // 分享图标
             success: function () {
@@ -144,7 +144,7 @@ function wxShare(data){
         });
         wx.onMenuShareTimeline({
             title: '友谊的小船要翻了，赶紧来拯救！', // 分享标题
-            link: "http://www.zhixin.me/ysweb/boat_enter.html?boat="+id,
+            link: "http://www.ys-1v1.com/ysweb/boat_enter.html?boat="+id,
             desc: "友谊的小船说翻就翻，大家都在救，我也要去！",
             imgUrl: data.userBoat.avatar2, // 分享图标
             success: function () {

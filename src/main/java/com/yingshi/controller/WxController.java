@@ -252,12 +252,11 @@ public class WxController {
             HttpServletResponse response){
 
         WxUser wxUser = wxService.getUserInfo(wxService.getSNSAccessToken(code));
-        //        response.sendRedirect("http://www.zhixin.me/boat_upload.html?openId="+wxUser.getOpenId());
 
-        String redirect_url = "http://www.zhixin.me/ysweb/boat_example.html?openId="+wxUser.getOpenId();
+        String redirect_url = "http://www.ys-1v1.com/ysweb/boat_example.html?openId="+wxUser.getOpenId();
 
         if(boat!=null && !boat.equals("")){
-            redirect_url = "http://www.zhixin.me/ysweb/boat_show.html?openId="+wxUser.getOpenId()+"&boat="+boat;
+            redirect_url = "http://www.ys-1v1.com/ysweb/boat_show.html?openId="+wxUser.getOpenId()+"&boat="+boat;
         }
 
         Map<String, Object> res = new HashMap<>();

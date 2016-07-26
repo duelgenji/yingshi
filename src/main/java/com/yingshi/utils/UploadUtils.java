@@ -16,8 +16,8 @@ import java.util.Date;
 @Service
 public class UploadUtils {
 
-    private static String ACCESS_KEY = "qeS1WLPo1KYdh-nQtGXXIJdyZok9i4-25GONgqcY";
-    private static String SECRET_KEY = "IB5uVOt6OXFS6tjSujc3BpzpPtFzsicSO2vx2Dfr";
+    private static String ACCESS_KEY = "aiCIMf0rC37GJVdLUnasBsspsskETumVePxKd65k";
+    private static String SECRET_KEY = "eQvrQrMqQotKRqTEwTjdD6DeCg5ImD6aIJPSPemF";
 
     private static UploadManager uploadManager = new UploadManager();
     private static Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
@@ -32,7 +32,7 @@ public class UploadUtils {
 
         String key = name +  DateFormatUtils.format(new Date(), "yyyyMMddHHmmssSSS");
 
-        String BASIC_URL = "http://yingshi.duelgenji.com/";
+        String BASIC_URL = "http://res.ys-1v1.com/";
         String url = BASIC_URL + key;
 
         String BUCKET_NAME = "yingshi";
