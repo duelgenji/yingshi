@@ -61,6 +61,9 @@ var headIcon2 = $(".gifjs2");
 var delay = 250;
 var interval;
 var windowWidth = $(document).width();
+if(windowWidth>=414){
+    windowWidth = 414;
+}
 
 function GIF_init(){
     var images = $(".boat-gif-default");
@@ -107,6 +110,14 @@ function upload_init(){
         "width":windowWidth*(parseInt(list.widthList[0])/320),
         "height":windowWidth*(parseInt(list.widthList[0])/320)});
 }
+
+$(window).resize(function(){
+    windowWidth = $(document).width();
+    if(windowWidth>=414){
+        windowWidth = 414;
+    }
+    upload_init();
+});
 
 function GIF_rescue(){
     if(boatType==1){

@@ -8,7 +8,7 @@
 
 html, body {
   height: 100%;
-  background-color: #1B99A8;
+  /*background-color: #1B99A8;*/
 
 }
 
@@ -17,10 +17,11 @@ button:focus {
 }
 
 .container {
+  max-width: 414px;
+  position: relative;
   padding: 0;
   /*min-height: 736px;*/
-  position: relative;
-  background: url("../img/boat/boat_bg.png") top no-repeat #24D4EC;
+  background: url("http://res.ys-1v1.com/res/boat_bg.png?imageMogr2/thumbnail/500x") top no-repeat #24D4EC;
   background-size: 100% 544px;
 }
 
@@ -371,7 +372,7 @@ button:focus {
 }
 
 .photo-clip-area{
-  border-radius: 50%;
+  /*border-radius: 50%;*/
 }
 
 
@@ -530,7 +531,7 @@ button:focus {
   bottom: 0;
   height: 146px;
   width: 100%;
-  background: url("../img/boat/boat_bottom.png") center;
+  background: url("http://res.ys-1v1.com/res/boat_bottom.png") center;
   background-size: cover;
 }
 .boat-bottom img{
@@ -549,10 +550,10 @@ button:focus {
 
 @font-face {
   font-family: 'hukang';  /*给自定义字体命名*/
-  src: url("../fonts/myhkwwt.ttf") format('truetype');
+  src: url("http://res.ys-1v1.com/res/myhkwwt.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'xdxwc';  /*给自定义字体命名*/
-  src: url("../fonts/myxdxwc.ttf") format('truetype');
+  src: url("http://res.ys-1v1.com/res/myxdxwc.ttf") format('truetype');
 }

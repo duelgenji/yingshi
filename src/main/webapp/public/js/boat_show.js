@@ -23,33 +23,37 @@ $(document).ready(function () {
     avatar.css("height", height);
 });
 
-$.get(commonUrl + "wx/retrieveBoat/" + id_, function (data) {
-    console.log(data);
-    if (data.success == "1") {
-        $("#wish").html(data.userBoat.title);
-        $("#upload-btn").attr("src", data.userBoat.avatar1);
-        $("#upload-baby").attr("src", data.userBoat.avatar2);
-        $("#boat-icon").attr("src", data.userBoat.boat.imgUrl);
+function getBoatInfo(){
+    $.get(commonUrl + "wx/retrieveBoat/" + id_, function (data) {
+        console.log(data);
+        if (data.success == "1") {
+            $("#wish").html(data.userBoat.title);
+            $("#upload-btn").attr("src", data.userBoat.avatar1);
+            $("#upload-baby").attr("src", data.userBoat.avatar2);
+            $("#boat-icon").attr("src", data.userBoat.boat.imgUrl);
 
 
-        $("#boatTitle").html("—"+data.userBoat.boat.boatTitle+"—");
-        $("#boatText").html(data.userBoat.boat.takeText);
-        $("#money").html("&lt;"+data.userBoat.boat.money+"&gt;");
-        $("#present").html("&lt;"+data.userBoat.boat.present+"&gt;");
-        $("#result").html(data.userBoat.boat.result);
-        $(".rescue_number").html(data.rescue_number);
-        $(".refuse_number").html(data.refuse_number);
-        nameList(data);
-        boatType = parseInt(data.userBoat.boat.rescueType)+1;
+            $("#boatTitle").html("—"+data.userBoat.boat.boatTitle+"—");
+            $("#boatText").html(data.userBoat.boat.takeText);
+            $("#money").html("&lt;"+data.userBoat.boat.money+"&gt;");
+            $("#present").html("&lt;"+data.userBoat.boat.present+"&gt;");
+            $("#result").html(data.userBoat.boat.result);
+            $(".rescue_number").html(data.rescue_number);
+            $(".refuse_number").html(data.refuse_number);
+            nameList(data);
+            boatType = parseInt(data.userBoat.boat.rescueType)+1;
 
-        for(var i = 0 ;i<7;i++){
-            var type_html= boatType +"_"+(i+1);
-            $(".card-back").append('<img class="original boat-gif-rescue" src="http://res.ys-1v1.com/res/boat_gif_rescue_t'+type_html+'.png?imageMogr2/thumbnail/500x">');
+            for(var i = 0 ;i<7;i++){
+                var type_html= boatType +"_"+(i+1);
+                $(".card-back").append('<img class="original boat-gif-rescue" src="http://res.ys-1v1.com/res/boat_gif_rescue_t'+type_html+'.png?imageMogr2/thumbnail/500x">');
+            }
+
+            wxShare(data);
         }
+    });
+}
 
-        wxShare(data);
-    }
-});
+getBoatInfo();
 
 function nameList(data){
     var rescueList = data.rescueList;
@@ -104,7 +108,7 @@ function boatAction(type){
         data:json,
         type:"post",
         success:function(data){
-
+            getBoatInfo();
         }
     });
 }
