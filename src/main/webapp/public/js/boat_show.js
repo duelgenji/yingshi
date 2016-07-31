@@ -10,6 +10,8 @@ function GetQueryString(name) {
 }
 
 var id = GetQueryString("boat");
+var btnClickable = false;
+
 
 if (id != null) {
     var id_ = decodeURIComponent(id);
@@ -23,7 +25,7 @@ $(document).ready(function () {
     avatar.css("height", height);
 });
 
-function getBoatInfo(){
+function getBoatInfo(first){
     $.get(commonUrl + "wx/retrieveBoat/" + id_, function (data) {
         console.log(data);
         if (data.success == "1") {
@@ -43,19 +45,25 @@ function getBoatInfo(){
             nameList(data);
             boatType = parseInt(data.userBoat.boat.rescueType)+1;
 
-            for(var i = 0 ;i<7;i++){
-                var type_html= boatType +"_"+(i+1);
-                $(".card-back").append('<img class="original boat-gif-rescue" src="http://res.ys-1v1.com/res/boat_gif_rescue_t'+type_html+'.png?imageMogr2/thumbnail/500x">');
+            if(first){
+                for(var i = 0 ;i<7;i++){
+                    var type_html= boatType +"_"+(i+1);
+                    $(".card-back").append('<img class="original boat-gif-rescue" src="http://res.ys-1v1.com/res/boat_gif_rescue_t'+type_html+'.png?imageMogr2/thumbnail/500x">');
+                }
+                wxShare(data);
             }
 
-            wxShare(data);
         }
     });
 }
 
-getBoatInfo();
+getBoatInfo(true);
 
 function nameList(data){
+    $(".boat-rescue-list").empty();
+    $(".boat-rescue-names").empty();
+    $(".boat-refuse-list").empty();
+    $(".boat-refuse-names").empty();
     var rescueList = data.rescueList;
     var html = "";
     var i;
@@ -73,6 +81,9 @@ function nameList(data){
             '<div class="boat-list-name-r">'+rescueList[i].nickname+'</div>' +
             '</div>';
             $(".boat-rescue-names").append(html);
+            if(rescueList[i].openId==GetQueryString("openId")){
+                disableBtn();
+            }
         }
     }
 
@@ -91,6 +102,9 @@ function nameList(data){
             '<div class="boat-list-name-r">'+refuseList[i].nickname+'</div>' +
             '</div>';
             $(".boat-refuse-names").append(html);
+            if(rescueList[i].openId==GetQueryString("openId")){
+                disableBtn();
+            }
         }
     }
 
@@ -111,6 +125,13 @@ function boatAction(type){
             getBoatInfo();
         }
     });
+}
+
+function disableBtn(){
+    btnClickable = true;
+    $('#rescue').find("img").attr("src","public/img/boat/btn_rescue_disable.png");
+    $('#refuse').find("img").attr("src","public/img/boat/btn_refuse_disable.png");
+
 }
 
 function wxShare(data){

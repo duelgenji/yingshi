@@ -664,8 +664,8 @@
                 "top": "50%",
                 "width": clipWidth,
                 "height": clipHeight,
-                "margin-left": -clipWidth/2 - 1,
-                "margin-top": -clipHeight/2 - 1
+                "margin-left": -clipWidth/2 ,
+                "margin-top": -clipHeight/2
             }).appendTo($mask);
 
             // 初始化视图容器

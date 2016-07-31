@@ -157,7 +157,6 @@
 
     $(document).ready(function(){
         upload_init();
-        var btnClickable = false;
 
         var imgdefereds=[];
         $('img').each(function(){
@@ -183,8 +182,11 @@
         $('#rescue').on('click', function () {
             if(!btnClickable) return;
             btnClickable = false;
-            $('#rescue').find("img").attr("src","public/img/boat/btn_rescue_disable.png");
-            $('#refuse').find("img").attr("src","public/img/boat/btn_refuse_disable.png");
+            $('#rescue').find("img").attr("src","public/img/boat/btn_rescue_2.png");
+            setTimeout(function(){
+                $('#rescue').find("img").attr("src","public/img/boat/btn_rescue_disable.png");
+                $('#refuse').find("img").attr("src","public/img/boat/btn_refuse_disable.png");
+            },200);
             GIF_rescue();
             boatAction(0);
         });
@@ -192,8 +194,11 @@
         $('#refuse').on('click', function () {
             if(!btnClickable) return;
             btnClickable = false;
-            $('#rescue').find("img").attr("src","public/img/boat/btn_rescue_disable.png");
-            $('#refuse').find("img").attr("src","public/img/boat/btn_refuse_disable.png");
+            $('#refuse').find("img").attr("src","public/img/boat/btn_refuse_2.png");
+            setTimeout(function(){
+                $('#rescue').find("img").attr("src","public/img/boat/btn_rescue_disable.png");
+                $('#refuse').find("img").attr("src","public/img/boat/btn_refuse_disable.png");
+            },200);
             GIF_refuse();
             boatAction(1);
         });

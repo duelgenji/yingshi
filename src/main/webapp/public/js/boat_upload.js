@@ -125,17 +125,24 @@ var isSaving = false;
 
 $('#save').on('click', function () {
         //var title = $('#title').val();
-    $('#textModal').modal('show');
     if(isSaving) return;
     isSaving = true;
     var description = $('#description').val();
     var avatarUrl1 = $('#imgUrl').val().split(',')[1];
     var avatarUrl2 = $('#imgUrl1').val().split(',')[1];
+    //if(!avatarUrl1 || !avatarUrl2){
+    //    alert("需要上传两张头像噢~");
+    //    isSaving = false;
+    //    return;
+    //}
+    $('#textModal').modal('show');
+
     var data = {
         "avatar1": avatarUrl1,
         "avatar2": avatarUrl2,
         "openId": GetQueryString("openId")
     };
+    $(".my-modal-footer").hide();
     $.ajax({
         type: 'POST',
         url: commonUrl + 'wx/generateBoat',
@@ -147,13 +154,15 @@ $('#save').on('click', function () {
                 self.location = "boat_show.html?boat="+data.boat;
             }else{
                 $('#my-message').text("提交失败");
-                isSaving = false
+                isSaving = false;
+                $(".my-modal-footer").show();
             }
 
         },
         error: function () {
             $('#my-message').text("提交失败");
-            isSaving = false
+            isSaving = false;
+            $(".my-modal-footer").show();
         }
     });
 });

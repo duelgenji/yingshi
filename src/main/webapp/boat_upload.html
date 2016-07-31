@@ -64,7 +64,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal my-model" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-clip" role="document">
         <div class="modal-dialog " role="document" style="width:100%;height: 100%; padding: 0; margin: 0">
             <div id="clipArea" class="center" style="height: 100%"></div>
@@ -88,7 +88,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal my-model" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-clip" role="document">
         <div class="modal-dialog " role="document" style="width:100%;height: 100%; padding: 0; margin: 0">
             <div id="clipArea1" class="center" style="height: 100%"></div>
@@ -114,7 +114,7 @@
 <!-- Modal -->
 <div class="modal my-model" id="textModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document" style="width: 100%;height: 100%;margin: 0">
-        <div class="modal-content center" style="height: 180px;width: 250px;background-color: #FACD89;border:none;">
+        <div class="modal-content center" style="height: 180px;width: 250px;background-color: #FACD89;border:none;overflow: hidden;">
             <div class="my-modal-body" id="my-message"
                  style="padding: 25px 0;text-align: center;font-size: 18px;color: black">
                 <img style="width: 50%;" src="public/img/boat/boat_upload_modal_text.png"/>
@@ -123,7 +123,11 @@
             <div style="position: absolute;top: 0;pointer-events:none;">
                 <img style="width: 100%;" src="public/img/boat/boat_upload_modal_gif.gif"/>
             </div>
-            <div class="my-modal-footer">
+            <div class="my-modal-footer" style="position: absolute;bottom: 10px;display: none;">
+                <button type="button" class="btn btn-default"
+                        style="display: block; margin: 0 99px;background-color: #FACD89;color:#000000;border: 1px solid #000000; "
+                        data-dismiss="modal">确定
+                </button>
             </div>
         </div>
     </div>
