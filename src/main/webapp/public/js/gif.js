@@ -72,7 +72,7 @@ function GIF_init(){
     var list = initParam;
 
     interval = setInterval(function(){
-        gifRender.attr("src","http://res.ys-1v1.com/res/boat_gif_default_"+(index+1)+".png?imageMogr2/thumbnail/500x/strip");
+        gifRender.attr("src","http://res.ys-1v1.com/res/boat_gif_default_"+(index+1)+".png?imageMogr2/thumbnail/500x");
         headIcon1.css({
             "top":windowWidth*(parseInt(list.topList_l[index])/320),
             "left":windowWidth*(parseInt(list.leftList_l[index])/320),
